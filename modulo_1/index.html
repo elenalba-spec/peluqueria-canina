@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Módulo 1 – Peluquería Canina Profesional</title>
+    <title>Módulo 1: Introducción y Fundamentos - Peluquería Canina Profesional</title>
 
-    <!-- FUENTES E ICONOS -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -18,23 +17,24 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: #333;
         }
 
+        /* CONTENEDOR MÁS ANCHO */
         .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 0 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
         }
 
         header {
-            background: #fff;
+            background: rgba(255,255,255,0.95);
             position: fixed;
-            top: 0;
             width: 100%;
+            top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 20px rgba(0,0,0,.1);
         }
 
         nav {
@@ -45,105 +45,132 @@
         }
 
         .logo {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             font-weight: 700;
             color: #667eea;
         }
 
-        /* HERO */
-        .hero {
-            margin-top: 80px;
-            padding: 4rem 0;
-            text-align: center;
-            color: #fff;
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
         }
 
-        .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-
-        .hero img {
-            width: 100%;
-            max-width: 1000px;
-            height: auto;
-            margin-top: 2.5rem;
-            border-radius: 25px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-
-        /* CONTENIDO */
-        main {
-            background: #fff;
-            border-radius: 25px;
-            margin: 2rem auto;
-            overflow: hidden;
-        }
-
-        .section {
-            padding: 3rem 2rem;
-            border-bottom: 1px solid #eee;
-        }
-
-        .section:last-child {
-            border-bottom: none;
-        }
-
-        .section h2 {
-            color: #667eea;
-            margin-bottom: 2rem;
-            font-size: 2.2rem;
-        }
-
-        /* GALERÍA */
-        .image-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin-top: 2rem;
-        }
-
-        .gallery-item {
-            background: #f9f9fb;
-            border-radius: 20px;
-            padding: 1.2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: auto;
-            max-height: 500px; /* CONTENEDOR MÁS ALTO */
-            object-fit: contain;
-            border-radius: 15px;
-            background: #fff;
-        }
-
-        .gallery-item h4 {
-            text-align: center;
-            margin-top: 1rem;
-            font-size: 1.1rem;
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
             color: #333;
         }
 
-        footer {
+        .hero {
+            margin-top: 90px;
+            padding: 4rem 0;
             text-align: center;
-            color: #fff;
-            padding: 2rem 1rem;
+            color: white;
+        }
+
+        /* HERO IMAGE MÁS GRANDE */
+        .hero-image {
+            width: 100%;
+            max-width: 1100px;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 24px;
+            margin-top: 2rem;
+            box-shadow: 0 25px 50px rgba(0,0,0,.35);
+        }
+
+        main {
+            background: white;
+            margin: 3rem auto;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,.15);
+        }
+
+        .section {
+            padding: 4rem 3rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section h2 {
+            font-size: 2.6rem;
+            color: #667eea;
+            margin-bottom: 2rem;
+        }
+
+        .section h3 {
+            font-size: 1.9rem;
+            margin: 2rem 0 1rem;
+            color: #764ba2;
+        }
+
+        .section p, .section li {
+            font-size: 1.15rem;
+            line-height: 1.9;
+        }
+
+        /* GALERÍA MÁS GRANDE */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+            gap: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        .gallery-item {
+            border-radius: 20px;
+            overflow: hidden;
+            background: #f9f9f9;
+            box-shadow: 0 15px 35px rgba(0,0,0,.15);
+            transition: transform .3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+        }
+
+        /* IMÁGENES MÁS ALTAS */
+        .gallery-item img {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+        }
+
+        .gallery-item h4 {
+            padding: 1.2rem;
+            text-align: center;
+            font-size: 1.3rem;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 520px;
+            border-radius: 18px;
+        }
+
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 2.5rem 1rem;
         }
 
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
+            .hero-image {
+                height: 320px;
             }
 
             .image-gallery {
                 grid-template-columns: 1fr;
+            }
+
+            .gallery-item img {
+                height: 280px;
+            }
+
+            .section {
+                padding: 2.5rem 1.5rem;
             }
         }
     </style>
@@ -153,45 +180,64 @@
 
 <header>
     <nav class="container">
-        <div class="logo">
-            <i class="fas fa-paw"></i> Peluquería Canina Pro
-        </div>
+        <div class="logo"><i class="fas fa-paw"></i> Peluquería Canina Pro</div>
+        <ul class="nav-links">
+            <li><a href="#historia">Historia</a></li>
+            <li><a href="#profesional">Profesional</a></li>
+            <li><a href="#establecimientos">Establecimientos</a></li>
+            <li><a href="#instalaciones">Instalaciones</a></li>
+        </ul>
     </nav>
 </header>
 
 <section class="hero">
     <div class="container">
         <h1>Módulo 1: Introducción y Fundamentos</h1>
-        <p>Historia y bases del grooming profesional</p>
-
-        <img src="modulo1_profesional_moderno.jpg" alt="Peluquero canino profesional">
+        <p>Historia, fundamentos y visión profesional del grooming canino</p>
+        <img src="modulo1_profesional_moderno.jpg" class="hero-image" alt="Grooming profesional">
     </div>
 </section>
 
 <main class="container">
 
-    <section class="section">
-        <h2>Historia de la Peluquería Canina</h2>
+<section id="historia" class="section">
+    <h2>Historia de la Peluquería Canina</h2>
 
-        <div class="image-gallery">
+    <p>Desde el Antiguo Egipto hasta la actualidad, el cuidado del perro ha evolucionado...</p>
 
-            <div class="gallery-item">
-                <img src="modulo1_historia_egipto.jpg" alt="Antiguo Egipto">
-                <h4>Antiguo Egipto</h4>
-            </div>
-
-            <div class="gallery-item">
-                <img src="modulo1_salon_paris.jpg" alt="Primer salón de París">
-                <h4>Primer salón de peluquería en París</h4>
-            </div>
-
-            <div class="gallery-item">
-                <img src="modulo1_codigo_etico.jpg" alt="Código ético profesional">
-                <h4>Ética profesional</h4>
-            </div>
-
+    <div class="image-gallery">
+        <div class="gallery-item">
+            <img src="modulo1_historia_egipto.jpg" alt="">
+            <h4>Antiguo Egipto</h4>
         </div>
-    </section>
+        <div class="gallery-item">
+            <img src="modulo1_salon_paris.jpg" alt="">
+            <h4>Primer salón en París</h4>
+        </div>
+    </div>
+</section>
+
+<section id="profesional" class="section">
+    <h2>El Profesional del Grooming</h2>
+
+    <div class="image-gallery">
+        <div class="gallery-item">
+            <img src="modulo1_codigo_etico.jpg" alt="">
+            <h4>Ética Profesional</h4>
+        </div>
+    </div>
+</section>
+
+<section id="instalaciones" class="section">
+    <h2>Instalaciones Profesionales</h2>
+
+    <div class="image-gallery">
+        <div class="gallery-item">
+            <img src="modulo1_distribucion_salon.jpg" alt="">
+            <h4>Distribución del Salón</h4>
+        </div>
+    </div>
+</section>
 
 </main>
 
