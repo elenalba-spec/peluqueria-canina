@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 4: Herramientas Profesionales y Equipamiento - Peluquería Canina Profesional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); min-height: 100vh; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: #4facfe; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { text-decoration: none; color: #333; font-weight: 500; transition: color 0.3s ease; }
+        .nav-links a:hover { color: #4facfe; }
+        .hero { margin-top: 80px; padding: 4rem 0; text-align: center; color: white; }
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; animation: fadeInUp 1s ease; }
+        .hero p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; }
+        .hero-image { width: 100%; max-width: 800px; height: 400px; object-fit: cover; border-radius: 20px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); animation: fadeIn 1.5s ease; }
+        main { background: white; margin: 2rem 0; border-radius: 20px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); overflow: hidden; }
+        .section { padding: 3rem 2rem; border-bottom: 1px solid #eee; }
+        .section:last-child { border-bottom: none; }
+        .section h2 { font-size: 2.5rem; color: #4facfe; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+        .section h3 { font-size: 1.8rem; color: #00f2fe; margin: 2rem 0 1rem 0; border-left: 4px solid #4facfe; padding-left: 1rem; }
+        .section p { margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.8; }
+        .section ul { margin: 1.5rem 0; padding-left: 2rem; }
+        .section li { margin-bottom: 0.8rem; font-size: 1.1rem; }
+        .image-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0; }
+        .gallery-item { background: #f8f9fa; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease; }
+        .gallery-item:hover { transform: translateY(-5px); }
+        .gallery-item img { width: 100%; height: 250px; object-fit: cover; }
+        .gallery-item h4 { padding: 1rem; font-size: 1.2rem; color: #333; text-align: center; }
+        .video-container { margin: 2rem 0; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
+        .video-container iframe { width: 100%; height: 500px; border: none; }
+        .audio-player { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 2rem; border-radius: 15px; margin: 2rem 0; text-align: center; }
+        .audio-player h4 { margin-bottom: 1rem; font-size: 1.5rem; }
+        .accordion { margin: 2rem 0; }
+        .accordion-item { background: #f8f9fa; margin-bottom: 1rem; border-radius: 10px; overflow: hidden; }
+        .accordion-header { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; }
+        .accordion-header:hover { background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%); }
+        .accordion-content { padding: 1.5rem; display: none; }
+        .accordion-content.active { display: block; animation: fadeIn 0.5s ease; }
+        .tools-table { width: 100%; border-collapse: collapse; margin: 2rem 0; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
+        .tools-table th { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 1rem; text-align: left; font-weight: 600; }
+        .tools-table td { padding: 1rem; border-bottom: 1px solid #eee; }
+        .tools-table tr:hover { background: #f8f9fa; }
+        .highlight-box { background: linear-gradient(135deg, #4facfe20 0%, #00f2fe20 100%); border-left: 4px solid #4facfe; padding: 1.5rem; margin: 2rem 0; border-radius: 10px; }
+        .highlight-box h4 { color: #4facfe; margin-bottom: 1rem; font-size: 1.3rem; }
+        footer { background: #333; color: white; text-align: center; padding: 2rem 0; margin-top: 2rem; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @media (max-width: 768px) { .hero h1 { font-size: 2rem; } .nav-links { display: none; } .section { padding: 2rem 1rem; } .video-container iframe { height: 300px; } }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo"><i class="fas fa-paw"></i> Peluquería Canina Pro</div>
+            <ul class="nav-links">
+                <li><a href="#maquinas">Máquinas</a></li>
+                <li><a href="#tijeras">Tijeras</a></li>
+                <li><a href="#cepillos">Cepillos</a></li>
+                <li><a href="#equipamiento">Equipamiento</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Módulo 4: Herramientas Profesionales y Equipamiento</h1>
+            <p>Domina las herramientas esenciales del grooming profesional</p>
+            <img src="modulo4_herramientas_completas.jpg" alt="Herramientas completas" class="hero-image">
+        </div>
+    </section>
+
+    <main class="container">
+        <section id="maquinas" class="section">
+            <h2><i class="fas fa-cut"></i> Máquinas de Corte</h2>
+            
+            <h3>Tipos de Máquinas (Rotativo, Vibratorio, Inalámbrico)</h3>
+            <p>Las máquinas de corte son el corazón del equipamiento de un groomer profesional. Existen tres tipos principales: rotativas, vibratorias e inalámbricas. Las máquinas rotativas utilizan un motor que gira continuamente, ofreciendo potencia constante y siendo ideales para cortes extensos y pelo grueso. Las máquinas vibratorias usan un sistema de oscilación que produce menos calor y ruido, siendo ideales para perros sensibles. Las máquinas inalámbricas ofrecen movilidad y conveniencia, aunque requieren carga regular.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo4_maquina_corte.jpg" alt="Máquina de corte"><h4>Diagrama técnico de máquina de corte</h4></div>
+            </div>
+
+            <h3>Cuchillas y Peines Guía</h3>
+            <p>Las cuchillas son fundamentales para lograr cortes precisos y uniformes. La numeración de las cuchillas indica la longitud del corte: #10 deja 1.6mm, #15 deja 1.2mm, #30 deja 0.6mm, #40 deja 0.25mm. Los peines guía se acoplan a las cachillas para lograr longitudes mayores, siendo ideales para cortes de exposición y acabados suaves. Es esencial mantener las cachillas limpias, lubricadas y afiladas para un rendimiento óptimo.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo4_cuchillas.jpg" alt="Cuchillas"><h4>Infografía de cuchillas con medidas y usos</h4></div>
+            </div>
+
+            <h3>Mantenimiento y Limpieza</h3>
+            <p>El mantenimiento adecuado de las máquinas prolonga su vida útil y garantiza cortes de calidad. Después de cada uso, limpia los restos de pelo con un cepillo pequeño, aplica aceite de cuchillas, y guarda la máquina en un lugar seco. Realiza una limpieza profunda semanalmente desmontando las cuchillas y limpiando todas las partes. Afila las cuchillas cuando notes que tiran del pelo en lugar de cortarlo limpiamente.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo4_mantenimiento.jpg" alt="Mantenimiento"><h4>Secuencia de mantenimiento de herramientas</h4></div>
+            </div>
+        </section>
+
+        <section id="tijeras" class="section">
+            <h2><i class="fas fa-scissors"></i> Tijeras Profesionales</h2>
+            
+            <h3>Rectas, Curvas, de Adelgazar</h3>
+            <p>Las tijeras profesionales son herramientas de precisión que requieren habilidad y práctica. Las tijeras rectas son las más versátiles, ideales para cortes lineales y acabados. Las tijeras curvas permiten crear formas suaves y naturales, siendo perfectas para modelar cabezas y patas. Las tijeras de adelgazar o texturizar tienen dientes en una o ambas hojas, permitiendo remover cantidades controladas de pelo para crear efectos de ligereza y movimiento.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo4_tijeras.jpg" alt="Tipos de tijeras"><h4>Comparativa visual de 6 tipos de tijeras profesionales</h4></div>
+            </div>
+
+            <h3>Técnicas de Uso</h3>
+            <p>El manejo correcto de las tijeras requiere postura adecuada y movimientos controlados. Sostén las tijeras con el pulgar en el agujero superior y los otros dedos en el inferior, manteniendo la muñeca relajada. Los cortes deben ser fluidos y continuos, nunca forzados. Practica diferentes ángulos y presiones para dominar técnicas como el desfilado, el apuntado y el texturizado.</p>
+
+            <h3>Afilado y Cuidado</h3>
+            <p>Las tijeras profesionales deben afilarse regularmente por profesionales especializados. Entre afilados, mantén las hojas limpias y lubricadas, guarda las tijeras en estuches protectores, y evita caídas que puedan dañar el filo. Nunca uses tijeras de peluquería para cortar otros materiales, ya que esto daña el filo y afecta la precisión del corte.</p>
+        </section>
+
+        <section id="cepillos" class="section">
+            <h2><i class="fas fa-brush"></i> Cepillos y Peines</h2>
+            
+            <h3>Tipos según Pelaje</h3>
+            <p>La selección correcta de cepillos y peines es esencial para un grooming efectivo y seguro. Cada tipo de pelaje requiere herramientas específicas que trabajen con la textura y longitud del pelo sin causar daño ni dolor al perro.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo4_cepillos.jpg" alt="Colección de cepillos"><h4>Colección completa de cepillos profesionales</h4></div>
+            </div>
+
+            <table class="tools-table">
+                <thead>
+                    <tr>
+                        <th>Herramienta</th>
+                        <th>Uso Principal</th>
+                        <th>Tipos de Pelo</th>
+                        <th>Frecuencia de Uso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Slicker Brush</strong></td><td>Desenredado, eliminación de pelo muerto</td><td>Medio, largo, rizado</td><td>Diaria</td></tr>
+                    <tr><td><strong>Pin Brush</strong></td><td>Cepillado suave, acabado</td><td>Largo, sedoso</td><td>Diaria</td></tr>
+                    <tr><td><strong>Bristle Brush</strong></td><td>Distribución de aceites naturales</td><td>Corto, medio</td><td>Diaria</td></tr>
+                    <tr><td><strong>Carda</strong></td><td>Remover undercoat, desenredar</td><td>Doble capa, largo</td><td>2-3 veces/semana</td></tr>
+                    <tr><td><strong>Deslanador</strong></td><td>Remover pelo muerto en muda</td><td>Doble capa</td><td>Diaria en muda</td></tr>
+                    <tr><td><strong>Guante de Goma</strong></td><td>Cepillado en seco, masaje</td><td>Corto, medio</td><td>Diaria</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Técnicas de Cepillado</h3>
+            <p>El cepillado correcto requiere técnica y paciencia. Comienza siempre con un desenredante si hay nudos, trabaja en secciones pequeñas desde la piel hacia afuera, y mantén el cepillo en ángulo de 45 grados para evitar rasguños. El cepillado debe ser un proceso relajante para el perro, nunca doloroso o estresante.</p>
+
+            <h3>Herramientas Especializadas</h3>
+            <p>Además de los cepillos básicos, existen herramientas especializadas para situaciones específicas. Los stripping knives son esenciales para razas de pelo duro, los desenredantes en spray ayudan con nudos severos, y las piedras pómez naturales son útiles para remover pelo suelto en razas de pelo corto.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo4_productos_higiene.jpg" alt="Productos de higiene"><h4>Productos de higiene profesional organizados</h4></div>
+            </div>
+        </section>
+
+        <section id="equipamiento" class="section">
+            <h2><i class="fas fa-home"></i> Equipo de Baño y Secado</h2>
+            
+            <h3>Bañeras Profesionales</h3>
+            <p>Las bañeras profesionales para perros están diseñadas para la comodidad tanto del groomer como del animal. Son generalmente de acero inoxidable por su durabilidad y facilidad de limpieza, con altura ajustable para evitar esfuerzos en la espalda del groomer. Sistemas de drenaje eficientes, protecciones antideslizantes y sistemas de sujeción integrados son características esenciales.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo4_banera.jpg" alt="Bañera profesional"><h4>Diagrama de bañera profesional con especificaciones</h4></div>
+            </div>
+
+            <h3>Secadores y Expulsores</h3>
+            <p>El secado es una parte crucial del grooming profesional. Los secadores de mano ofrecen control preciso pero requieren más tiempo. Los secadores de casco permiten trabajo simultáneo en otras áreas. Los expulsores de alta velocidad son los más eficientes para remover agua excesa y pelo suelto, especialmente en razas de doble capa.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo4_secadores.jpg" alt="Comparativa de secadores"><h4>Comparativa de tipos de secadores con especificaciones</h4></div>
+            </div>
+
+            <h3>Productos de Higiene</h3>
+            <p>Los productos de higiene profesionales incluyen champús específicos para diferentes necesidades (blanqueadores, hidratantes, medicados), acondicionadores, desenredantes, sprays de acabado y productos para limpieza de oídos y ojos. La selección correcta de productos es tan importante como la técnica de aplicación.</p>
+
+            <h3>Equipamiento de Seguridad</h3>
+            <p>El equipo de protección personal (EPP) es obligatorio para cualquier groomer profesional. Esto incluye bata resistente al agua, guantes de nitrilo, gafas de protección, mascarilla para polvo y pelo, y calzado antideslizante. Los sistemas de sujeción deben ser seguros pero cómodos para el perro, incluyendo arneses, correas y ganchos de seguridad.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo4_epp.jpg" alt="EPP completo"><h4>Infografía de EPP completo para groomer</h4></div>
+                <div class="gallery-item"><img src="modulo4_sujecion.jpg" alt="Sistema de sujeción"><h4>Sistema de sujeción profesional</h4></div>
+                <div class="gallery-item"><img src="modulo4_botiquin.jpg" alt="Botiquín"><h4>Botiquín de primeros auxilios completo</h4></div>
+                <div class="gallery-item"><img src="modulo4_flujo_trabajo.jpg" alt="Flujo de trabajo"><h4>Organización de sala con flujo optimizado</h4></div>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Checklist de Equipamiento Básico</h4>
+                <ul>
+                    <li>Mesa de grooming ajustable con sistema de sujeción</li>
+                    <li>Bañera profesional con drenaje y protecciones antideslizantes</li>
+                    <li>Secador de alta velocidad con control de temperatura</li>
+                    <li>Máquina de corte profesional con juego completo de cuchillas</li>
+                    <li>Juego de tijeras: rectas, curvas, de adelgazar</li>
+                    <li>Colección completa de cepillos y peines</li>
+                    <li>Productos de higiene: champús, acondicionadores, desenredantes</li>
+                    <li>EPP completo: bata, guantes, gafas, mascarilla</li>
+                    <li>Botiquín de primeros auxilios completo y accesible</li>
+                    <li>Sistema de ventilación adecuado</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-video"></i> Videos Educativos</h2>
+            <div class="video-container"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Máquinas de Corte Profesionales"></iframe></div>
+            <div class="video-container"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Tijeras y Técnicas de Corte"></iframe></div>
+            <div class="video-container"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Equipamiento de Seguridad"></iframe></div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-volume-up"></i> Narraciones del Módulo</h2>
+            <div class="audio-player">
+                <h4><i class="fas fa-play-circle"></i> Audio 1: Máquinas y Tijeras Profesionales</h4>
+                <audio controls style="width: 100%; margin-top: 1rem;"><source src="audio_modulo4.mp3" type="audio/mpeg">Tu navegador no soporta el reproductor de audio.</audio>
+                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">Guía completa sobre selección, uso y mantenimiento de máquinas y tijeras de corte.</p>
+            </div>
+            <div class="audio-player">
+                <h4><i class="fas fa-play-circle"></i> Audio 2: Cepillos y Equipamiento de Baño</h4>
+                <audio controls style="width: 100%; margin-top: 1rem;"><source src="audio_modulo4_2.mp3" type="audio/mpeg">Tu navegador no soporta el reproductor de audio.</audio>
+                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">Explicación detallada de cepillos, equipamiento de baño y seguridad profesional.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-lightbulb"></i> Contenido Adicional</h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)"><span>Guía de Compra de Equipamiento</span><i class="fas fa-chevron-down"></i></div>
+                    <div class="accordion-content">
+                        <h4>Qué Considerar al Comprar Equipamiento</h4>
+                        <ul>
+                            <li><strong>Calidad vs Precio:</strong> Invierte en calidad para equipos de uso frecuente</li>
+                            <li><strong>Garantía y Servicio:</strong> Verifica soporte técnico disponible</li>
+                            <li><strong>Repuestos:</strong> Asegura disponibilidad de cuchillas y piezas</li>
+                            <li><strong>Ergonomía:</strong> Comodidad para uso prolongado</li>
+                            <li><strong>Potencia:</strong> Suficiente para tu volumen de trabajo</li>
+                            <li><strong>Ruido:</strong> Considera perros sensibles al ruido</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)"><span>Programa de Mantenimiento</span><i class="fas fa-chevron-down"></i></div>
+                    <div class="accordion-content">
+                        <h4>Calendario de Mantenimiento Preventivo</h4>
+                        <ul>
+                            <li><strong>Después de cada uso:</strong> Limpieza básica, lubricación de cuchillas</li>
+                            <li><strong>Semanal:</strong> Limpieza profunda, revisión de cables</li>
+                            <li><strong>Mensual:</strong> Afilado de cuchillas si es necesario</li>
+                            <li><strong>Cada 3 meses:</strong> Reemplazo de filtros, revisión completa</li>
+                            <li><strong>Anual:</strong> Servicio técnico profesional</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Curso de Peluquería Canina Profesional - Módulo 4: Herramientas Profesionales y Equipamiento</p>
+            <p>Duración: 15 horas | Total de imágenes: 12 | Videos: 3 | Audios: 2</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('i');
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                document.querySelectorAll('.accordion-content').forEach(acc => acc.classList.remove('active'));
+                document.querySelectorAll('.accordion-header i').forEach(ic => ic.style.transform = 'rotate(0deg)');
+                content.classList.add('active');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

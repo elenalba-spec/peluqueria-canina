@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 5: Protocolos de Higiene y Baño Profesional - Peluquería Canina Profesional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: #667eea; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { text-decoration: none; color: #333; font-weight: 500; transition: color 0.3s ease; }
+        .nav-links a:hover { color: #667eea; }
+        .hero { margin-top: 80px; padding: 4rem 0; text-align: center; color: white; }
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; animation: fadeInUp 1s ease; }
+        .hero p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; }
+        .hero-image { width: 100%; max-width: 800px; height: 400px; object-fit: cover; border-radius: 20px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); animation: fadeIn 1.5s ease; }
+        main { background: white; margin: 2rem 0; border-radius: 20px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); overflow: hidden; }
+        .section { padding: 3rem 2rem; border-bottom: 1px solid #eee; }
+        .section:last-child { border-bottom: none; }
+        .section h2 { font-size: 2.5rem; color: #667eea; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+        .section h3 { font-size: 1.8rem; color: #764ba2; margin: 2rem 0 1rem 0; border-left: 4px solid #667eea; padding-left: 1rem; }
+        .section p { margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.8; }
+        .section ul { margin: 1.5rem 0; padding-left: 2rem; }
+        .section li { margin-bottom: 0.8rem; font-size: 1.1rem; }
+        .image-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0; }
+        .gallery-item { background: #f8f9fa; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease; }
+        .gallery-item:hover { transform: translateY(-5px); }
+        .gallery-item img { width: 100%; height: 250px; object-fit: cover; }
+        .gallery-item h4 { padding: 1rem; font-size: 1.2rem; color: #333; text-align: center; }
+        .video-container { margin: 2rem 0; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
+        .video-container iframe { width: 100%; height: 500px; border: none; }
+        .audio-player { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; border-radius: 15px; margin: 2rem 0; text-align: center; }
+        .audio-player h4 { margin-bottom: 1rem; font-size: 1.5rem; }
+        .accordion { margin: 2rem 0; }
+        .accordion-item { background: #f8f9fa; margin-bottom: 1rem; border-radius: 10px; overflow: hidden; }
+        .accordion-header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; }
+        .accordion-header:hover { background: linear-gradient(135deg, #764ba2 0%, #667eea 100%); }
+        .accordion-content { padding: 1.5rem; display: none; }
+        .accordion-content.active { display: block; animation: fadeIn 0.5s ease; }
+        .protocol-table { width: 100%; border-collapse: collapse; margin: 2rem 0; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
+        .protocol-table th { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1rem; text-align: left; font-weight: 600; }
+        .protocol-table td { padding: 1rem; border-bottom: 1px solid #eee; }
+        .protocol-table tr:hover { background: #f8f9fa; }
+        .highlight-box { background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%); border-left: 4px solid #667eea; padding: 1.5rem; margin: 2rem 0; border-radius: 10px; }
+        .highlight-box h4 { color: #667eea; margin-bottom: 1rem; font-size: 1.3rem; }
+        .warning-box { background: linear-gradient(135deg, #ff6b6b20 0%, #ffd93d20 100%); border-left: 4px solid #ff6b6b; padding: 1.5rem; margin: 2rem 0; border-radius: 10px; }
+        .warning-box h4 { color: #ff6b6b; margin-bottom: 1rem; font-size: 1.3rem; }
+        footer { background: #333; color: white; text-align: center; padding: 2rem 0; margin-top: 2rem; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @media (max-width: 768px) { .hero h1 { font-size: 2rem; } .nav-links { display: none; } .section { padding: 2rem 1rem; } .video-container iframe { height: 300px; } }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo"><i class="fas fa-paw"></i> Peluquería Canina Pro</div>
+            <ul class="nav-links">
+                <li><a href="#preparacion">Preparación</a></li>
+                <li><a href="#tecnica">Técnica</a></li>
+                <li><a href="#secado">Secado</a></li>
+                <li><a href="#final">Alistamiento</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Módulo 5: Protocolos de Higiene y Baño Profesional</h1>
+            <p>Domina las técnicas profesionales de baño y secado para resultados excepcionales</p>
+            <img src="modulo5_checklist_prebaño.jpg" alt="Checklist pre-baño" class="hero-image">
+        </div>
+    </section>
+
+    <main class="container">
+        <section id="preparacion" class="section">
+            <h2><i class="fas fa-clipboard-check"></i> Preparación Previa al Baño</h2>
+            
+            <h3>Revisión Completa del Animal</h3>
+            <p>Antes de comenzar cualquier procedimiento de baño, es fundamental realizar una revisión completa y sistemática del perro. Este examen preliminar permite detectar problemas de salud, lesiones, parásitos o condiciones especiales que requieran atención particular durante el grooming. La revisión debe incluir inspección de ojos, oídos, piel, pelaje, uñas, almohadillas y zona anal.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo5_checklist_prebaño.jpg" alt="Checklist pre-baño"><h4>Checklist visual de preparación pre-baño</h4></div>
+            </div>
+
+            <h3>Desenredado y Cepillado</h3>
+            <p>El desenredado previo al baño es crucial porque el agua puede agravar los nudos existentes, haciéndolos imposibles de remover después. Utiliza un desenredante en spray y trabaja sistemáticamente desde las puntas hacia la base, dividiendo el pelaje en secciones manejables. Para nudos severos, considera el uso de tijeras de adelgazar o, en casos extremos, un corte parcial.</p>
+
+            <h3>Corte de Uñas y Limpieza de Oídos</h3>
+            <p>El corte de uñas debe realizarse antes del baño para evitar arañazos accidentales. Identifica el quick (vaso sanguíneo) y corta solo la punta transparente de la uña. La limpieza de oídos previa al baño permite evaluar el estado auditivo y aplicar protectores si es necesario. Nunca insertes objetos en el canal auditivo más allá de lo visible.</p>
+            
+            <div class="highlight-box">
+                <h4>Checklist de Preparación Pre-Baño</h4>
+                <ul>
+                    <li><strong>Examen físico completo:</strong> Revisa piel, pelo, ojos, oídos, uñas, almohadillas</li>
+                    <li><strong>Evaluación de comportamiento:</strong> Determina si el perro es nervioso, agresivo o cooperativo</li>
+                    <li><strong>Identificación de problemas:</strong> Nota cualquier condición que requiera atención especial</li>
+                    <li><strong>Desenredado completo:</strong> Elimina todos los nudos y enredos</li>
+                    <li><strong>Cepillado previo:</strong> Remueve pelo muerto y suciedad superficial</li>
+                    <li><strong>Corte de uñas:</strong> Corta solo la punta, evitando el quick</li>
+                    <li><strong>Limpieza de oídos:</strong> Limpia el pabellón auditivo externo</li>
+                    <li><strong>Protección de ojos:</strong> Aplica gotas lubricantes o protectores oculares</li>
+                    <li><strong>Selección de productos:</strong> Elige champú y acondicionador apropiados</li>
+                    <li><strong>Preparación del área:</strong> Verifica temperatura del agua y disponibilidad de toallas</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="tecnica" class="section">
+            <h2><i class="fas fa-shower"></i> Técnica de Baño Profesional</h2>
+            
+            <h3>Temperatura del Agua</h3>
+            <p>La temperatura del agua es fundamental para la comodidad y seguridad del perro. La temperatura ideal está entre 37-38°C, similar a la temperatura corporal del animal. Agua demasiado caliente puede causar quemaduras y estrés térmico, mientras que agua fría puede causar hipotermia, especialmente en perros pequeños o de pelo corto. Siempre verifica la temperatura con tu mano o un termómetro antes de aplicar agua al perro.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo5_temperatura_agua.jpg" alt="Temperatura del agua"><h4>Diagrama de temperatura del agua con rangos seguros</h4></div>
+            </div>
+
+            <div class="warning-box">
+                <h4><i class="fas fa-exclamation-triangle"></i> Riesgos de Temperatura Inadecuada</h4>
+                <ul>
+                    <li><strong>Agua muy caliente (>40°C):</strong> Quemaduras, estrés térmico, shock</li>
+                    <li><strong>Agua muy fría (<30°C):</strong> Hipotermia, incomodidad, resistencia del perro</li>
+                    <li><strong>Temperatura variable:</strong> Estrés, mala experiencia para el perro</li>
+                </ul>
+            </div>
+
+            <h3>Selección de Productos</h3>
+            <p>La selección correcta de champú y acondicionador es crucial para el resultado del baño. Considera el tipo de pelo, color, condición de la piel, y cualquier problema específico como alergias o dermatitis. Los champús blanqueadores son ideales para razas blancas, los hidratantes para pelos secos y dañados, y los medicados para problemas de piel específicos. Siempre diluye el champú según las instrucciones del fabricante.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo5_tipos_champu.jpg" alt="Tipos de champú"><h4>Infografía comparativa de 8 tipos de champú profesional</h4></div>
+            </div>
+
+            <h3>Masaje y Enjuague</h3>
+            <p>El masaje durante el baño no solo limpia el pelaje sino que también estimula la circulación, relaja al perro y distribuye los productos uniformemente. Utiliza movimientos circulares con las yemas de los dedos, trabajando desde el cuello hacia la cola. Presta especial atención a zonas con acumulación de suciedad como patas, vientre y zona anal. El enjuague debe ser completo y minucioso, eliminando todo residuo de champú que pueda causar irritación.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo5_tecnicas_masaje.jpg" alt="Técnicas de masaje"><h4>Secuencia de técnica de masaje durante el baño</h4></div>
+            </div>
+
+            <table class="protocol-table">
+                <thead>
+                    <tr>
+                        <th>Paso</th>
+                        <th>Zona del Cuerpo</th>
+                        <th>Técnica</th>
+                        <th>Tiempo Aproximado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td><strong>Cuello y Pecho</strong></td><td>Masaje suave con movimientos circulares</td><td>1-2 minutos</td></tr>
+                    <tr><td>2</td><td><strong>Lomo y Costados</strong></td><td>Movimientos longitudinales con presión moderada</td><td>2-3 minutos</td></tr>
+                    <tr><td>3</td><td><strong>Vientre</strong></td><td>Movimientos suaves, evitando presión excesiva</td><td>1-2 minutos</td></tr>
+                    <tr><td>4</td><td><strong>Patas</strong></td><td>Masaje individual de cada pata, entre dedos</td><td>2-3 minutos</td></tr>
+                    <tr><td>5</td><td><strong>Cola</strong></td><td>Movimientos desde la base hacia la punta</td><td>1 minuto</td></tr>
+                    <tr><td>6</td><td><strong>Cabeza</strong></td><td>Extrema delicadeza, evitando ojos y oídos</td><td>1-2 minutos</td></tr>
+                </tbody>
+            </table>
+
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo5_orden_champu.jpg" alt="Orden de aplicación"><h4>Diagrama de zonas corporales para aplicación del champú</h4></div>
+            </div>
+        </section>
+
+        <section id="secado" class="section">
+            <h2><i class="fas fa-wind"></i> Secado Profesional</h2>
+            
+            <h3>Eliminación de Exceso de Agua</h3>
+            <p>Antes de comenzar el secado con aire, es esencial eliminar el exceso de agua del pelaje. Utiliza toallas absorbentes de microfibra, presionando suavemente sobre el pelaje sin frotar, ya que el frotado puede causar enredos y daño al pelo. Para razas de doble capa o pelo muy denso, un expulsor de alta velocidad es el método más eficiente para remover agua excesa antes del secado completo.</p>
+
+            <h3>Técnicas con Secador</h3>
+            <p>El secado profesional requiere técnica y paciencia. Mantén el secador a una distancia de 15-30 cm del pelaje, con un ángulo de 45 grados para evitar quemaduras y maximizar la eficiencia. Utiliza movimientos constantes y fluidos, nunca dejes el secador estático sobre una zona. Para perros sensibles al ruido, comienza con velocidad y temperatura bajas, aumentando gradualmente.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo5_tecnica_secado.jpg" alt="Técnica de secado"><h4>Técnica profesional mostrando ángulo y distancia</h4></div>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Parámetros de Secado Seguro</h4>
+                <ul>
+                    <li><strong>Distancia:</strong> 15-30 cm del pelaje</li>
+                    <li><strong>Ángulo:</strong> 45 grados para evitar quemaduras</li>
+                    <li><strong>Temperatura:</strong> Templada a cálida, nunca caliente</li>
+                    <li><strong>Movimiento:</strong> Constante, nunca estático</li>
+                    <li><strong>Velocidad:</strong> Ajusta según sensibilidad del perro</li>
+                    <li><strong>Tiempo:</strong> Varía según densidad del pelaje</li>
+                </ul>
+            </div>
+
+            <h3>Secado por Zonas</h3>
+            <p>El secado por zonas asegura que todo el pelaje quede completamente seco, previniendo problemas de piel como hongos y bacterias. Comienza por el cuerpo principal, luego patas, cola, y finalmente cabeza. Presta especial atención a zonas difíciles como axilas, entre los cojines de las patas, y pliegues de piel en razas con muchos pliegues.</p>
+
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo5_enjuague_correcto.jpg" alt="Enjuague correcto"><h4>Comparativa visual de enjuague correcto vs incorrecto</h4></div>
+            </div>
+        </section>
+
+        <section id="final" class="section">
+            <h2><i class="fas fa-sparkles"></i> Alistamiento Final</h2>
+            
+            <h3>Limpieza Facial</h3>
+            <p>La limpieza facial requiere extrema delicadeza. Utiliza un paño húmedo o algodón con agua tibia para limpiar alrededor de los ojos, removiendo cualquier secreción o mancha. Para la zona de la boca y barba, utiliza un champú suave diluido y enjuaga cuidadosamente. Seca la cara con palmaditas suaves, evitando frotar.</p>
+
+            <h3>Cepillado de Acabado</h3>
+            <p>El cepillado final da el toque profesional al grooming. Utiliza el cepillo apropiado para el tipo de pelo, trabajando en la dirección del crecimiento natural. Este cepillado elimina los últimos restos de pelo suelto, distribuye los aceites naturales, y deja el pelaje brillante y suave.</p>
+
+            <h3>Productos de Terminación</h3>
+            <p>Los productos de terminación añaden el toque final profesional. Los sprays de acabado añaden brillo y suavidad, los perfumes caninos dejan al perro oliendo fresco, y los acondicionadores sin enjuague ayudan a mantener el pelaje hidratado entre baños. Aplica estos productos según las instrucciones y las preferencias del cliente.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo5_alistamiento_final.jpg" alt="Alistamiento final"><h4>Protocolo de alistamiento final paso a paso</h4></div>
+                <div class="gallery-item"><img src="modulo5_productos_acabado.jpg" alt="Productos de acabado"><h4>Infografía de productos de acabado profesionales</h4></div>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Protocolo Completo de Baño Profesional</h4>
+                <ol>
+                    <li><strong>Preparación:</strong> Revisión, desenredado, corte de uñas, limpieza de oídos</li>
+                    <li><strong>Pre-baño:</strong> Protección de ojos, verificación de temperatura del agua</li>
+                    <li><strong>Premojado:</strong> Mojar completamente el pelaje con agua tibia</li>
+                    <li><strong>Aplicación de champú:</strong> Desde el cuello hacia la cola, masajeando suavemente</li>
+                    <li><strong>Masaje:</strong> Trabajar el champú con movimientos circulares y longitudinales</li>
+                    <li><strong>Enjuague primario:</strong> Remover la mayor parte del champú</li>
+                    <li><strong>Segunda aplicación:</strong> Si es necesario, repetir el proceso para pelajes muy sucios</li>
+                    <li><strong>Enjuague completo:</strong> Asegurar que no queden residuos de producto</li>
+                    <li><strong>Aplicación de acondicionador:</strong> Si corresponde, dejar actuar el tiempo indicado</li>
+                    <li><strong>Enjuague final:</strong> Remover completamente todos los productos</li>
+                    <li><strong>Eliminación de exceso:</strong> Presionar con toallas para remover agua</li>
+                    <li><strong>Secado:</strong> Con secador profesional, trabajando por zonas</li>
+                    <li><strong>Alistamiento final:</strong> Limpieza facial, cepillado, productos de acabado</li>
+                </ol>
+            </div>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo5_proceso_completo.jpg" alt="Proceso completo"><h4>Secuencia completa de baño profesional en 12 pasos</h4></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-video"></i> Videos Educativos</h2>
+            <div class="video-container"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Técnica de Baño Profesional"></iframe></div>
+            <div class="video-container"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Secado Profesional"></iframe></div>
+            <div class="video-container"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Productos de Higiene Canina"></iframe></div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-volume-up"></i> Narraciones del Módulo</h2>
+            <div class="audio-player">
+                <h4><i class="fas fa-play-circle"></i> Audio 1: Preparación y Técnica de Baño</h4>
+                <audio controls style="width: 100%; margin-top: 1rem;"><source src="audio_modulo5.mp3" type="audio/mpeg">Tu navegador no soporta el reproductor de audio.</audio>
+                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">Guía completa sobre preparación previa y técnica de baño profesional.</p>
+            </div>
+            <div class="audio-player">
+                <h4><i class="fas fa-play-circle"></i> Audio 2: Secado y Alistamiento Final</h4>
+                <audio controls style="width: 100%; margin-top: 1rem;"><source src="audio_modulo5_2.mp3" type="audio/mpeg">Tu navegador no soporta el reproductor de audio.</audio>
+                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">Técnicas profesionales de secado y alistamiento final.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-lightbulb"></i> Contenido Adicional</h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)"><span>Problemas Comunes en el Baño</span><i class="fas fa-chevron-down"></i></div>
+                    <div class="accordion-content">
+                        <h4>Soluciones a Problemas Frecuentes</h4>
+                        <ul>
+                            <li><strong>Perro nervioso:</strong> Mantén la calma, usa voz suave, recompensas</li>
+                            <li><strong>Perro que se resiste al agua:</strong> Comienza con agua mínima, aumenta gradualmente</li>
+                            <li><strong>Nudos que empeoran:</strong> Más desenredante, trabaja con paciencia</li>
+                            <li><strong>Champú que no enjuaga:</strong> Agua más caliente, enjuague más prolongado</li>
+                            <li><strong>Olor persistente:</strong> Segunda aplicación de champú, enjuague completo</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)"><span>Productos Recomendados por Tipo de Pelo</span><i class="fas fa-chevron-down"></i></div>
+                    <div class="accordion-content">
+                        <h4>Guía de Selección de Productos</h4>
+                        <ul>
+                            <li><strong>Pelo blanco:</strong> Champú blanqueador, acondicionador sin tinte</li>
+                            <li><strong>Pelo negro:</strong> Champú para realzar color negro</li>
+                            <li><strong>Pelo seco/dañado:</strong> Champú hidratante, acondicionador intensivo</li>
+                            <li><strong>Pelo sensible:</strong> Champú hipoalergénico, sin fragancia</li>
+                            <li><strong>Pelo con caspa:</strong> Champú anticaspa, exfoliante suave</li>
+                            <li><strong>Cachorros:</strong> Champú suave especial para cachorros</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Curso de Peluquería Canina Profesional - Módulo 5: Protocolos de Higiene y Baño Profesional</p>
+            <p>Duración: 18 horas | Total de imágenes: 10 | Videos: 3 | Audios: 2</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('i');
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                document.querySelectorAll('.accordion-content').forEach(acc => acc.classList.remove('active'));
+                document.querySelectorAll('.accordion-header i').forEach(ic => ic.style.transform = 'rotate(0deg)');
+                content.classList.add('active');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

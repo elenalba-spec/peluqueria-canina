@@ -1,0 +1,292 @@
+═══════════════════════════════════════════════════════════════
+GUÍA DE INSTALACIÓN - CURSO PELUQUERÍA CANINA PROFESIONAL 120h
+═══════════════════════════════════════════════════════════════
+
+AUTOR: Curso Profesional de Peluquería Canina
+VERSIÓN: 1.0
+FECHA: 2024
+
+═══════════════════════════════════════════════════════════════
+1. REQUISITOS DEL SISTEMA
+═══════════════════════════════════════════════════════════════
+
+✓ Plataforma LMS: Moodle 3.9 o superior
+✓ Espacio en disco: 2 GB mínimo
+✓ Navegadores compatibles: Chrome, Firefox, Safari, Edge (últimas versiones)
+✓ Resolución de pantalla: 1280x768 o superior recomendado
+✓ Conexión a Internet: Banda ancha para videos y audios
+
+═══════════════════════════════════════════════════════════════
+2. ESTRUCTURA DEL CURSO
+═══════════════════════════════════════════════════════════════
+
+El curso está organizado en 8 módulos independientes:
+
+📁 Modulo_1_Introduccion/
+   ├── modulo1.html (Archivo principal del módulo)
+   ├── 6 imágenes educativas (.jpg)
+   └── 2 archivos de audio (.mp3)
+
+📁 Modulo_2_Anatomia/
+   ├── modulo2.html
+   ├── 8 imágenes educativas
+   └── 2 archivos de audio
+
+📁 Modulo_3_Pelaje_Razas/
+   ├── modulo3.html
+   ├── 10 imágenes educativas
+   └── 2 archivos de audio
+
+📁 Modulo_4_Herramientas/
+   ├── modulo4.html
+   ├── 12 imágenes educativas
+   └── 2 archivos de audio
+
+📁 Modulo_5_Higiene_Banio/
+   ├── modulo5.html
+   ├── 10 imágenes educativas
+   └── 2 archivos de audio
+
+📁 Modulo_6_Tecnicas_Corte/
+   ├── modulo6.html
+   ├── 15 imágenes educativas
+   └── 2 archivos de audio
+
+📁 Modulo_7_Comportamiento_Seguridad/
+   ├── modulo7.html
+   ├── 8 imágenes educativas
+   └── 2 archivos de audio
+
+📁 Modulo_8_Gestion_Negocio/
+   ├── modulo8.html
+   ├── 8 imágenes educativas
+   └── 2 archivos de audio
+
+📁 Evaluaciones/
+   ├── preguntas_modulo1.gift (15 preguntas)
+   ├── preguntas_modulo2.gift (15 preguntas)
+   ├── preguntas_modulo3.gift (15 preguntas)
+   ├── preguntas_modulo4.gift (15 preguntas)
+   ├── preguntas_modulo5.gift (15 preguntas)
+   ├── preguntas_modulo6.gift (15 preguntas)
+   ├── preguntas_modulo7.gift (15 preguntas)
+   ├── preguntas_modulo8.gift (15 preguntas)
+   └── examen_final.gift (30 preguntas)
+
+📁 Documentacion/
+   ├── guia_instalacion.txt
+   ├── estructura_curso.txt
+   └── creditos.txt
+
+═══════════════════════════════════════════════════════════════
+3. INSTALACIÓN EN MOODLE
+═══════════════════════════════════════════════════════════════
+
+PASO 1: Crear el curso en Moodle
+--------------------------------
+1. Ingresar a Moodle como administrador
+2. Ir a: Administración del sitio → Cursos → Gestionar cursos
+3. Crear nuevo curso: "Peluquería Canina Profesional 120h"
+4. Configurar formato: "Temas" (recomendado)
+5. Establecer duración: 120 horas
+6. Guardar el curso
+
+PASO 2: Crear secciones para cada módulo
+----------------------------------------
+1. Dentro del curso, crear 8 secciones/temas
+2. Nombre de las secciones:
+   - Módulo 1: Introducción y Fundamentos (15h)
+   - Módulo 2: Anatomía y Fisiología Canina (18h)
+   - Módulo 3: Tipos de Pelaje y Clasificación de Razas (20h)
+   - Módulo 4: Herramientas Profesionales y Equipamiento (15h)
+   - Módulo 5: Protocolos de Higiene y Baño Profesional (18h)
+   - Módulo 6: Técnicas de Corte y Estilismo (22h)
+   - Módulo 7: Comportamiento Canino y Seguridad (12h)
+   - Módulo 8: Gestión del Negocio y Atención al Cliente (10h)
+
+PASO 3: Subir archivos HTML
+---------------------------
+1. En cada sección, agregar actividad "Página"
+2. Nombre: "Contenido del Módulo X"
+3. En "Contenido", usar el editor HTML
+4. Abrir el archivo HTML correspondiente
+5. Copiar TODO el contenido (Ctrl+A, Ctrl+C)
+6. Pegar en el editor HTML de Moodle
+7. Guardar y mostrar
+
+NOTA: Cada módulo HTML es independiente y contiene todo su CSS y JavaScript interno.
+
+PASO 4: Subir imágenes y audios
+-------------------------------
+1. En cada sección, crear carpeta "Recursos del Módulo X"
+2. Subir todas las imágenes (.jpg) de ese módulo
+3. Subir todos los archivos de audio (.mp3)
+4. Los archivos deben estar en la misma carpeta que el HTML para referencias correctas
+
+PASO 5: Importar evaluaciones GIFT
+----------------------------------
+1. Ir a: Administración del curso → Preguntas
+2. Importar desde archivo: seleccionar preguntas_modulo1.gift
+3. Repetir para todos los módulos (1-8)
+4. Crear cuestionarios en cada sección:
+   - Nombre: "Evaluación Módulo X"
+   - Preguntas: 15
+   - Tiempo límite: 30 minutos
+   - Intentos permitidos: 2
+   - Retroalimentación: Inmediata
+
+PASO 6: Crear examen final
+--------------------------
+1. Crear sección final: "Examen Final"
+2. Importar preguntas de examen_final.gift
+3. Crear cuestionario "Examen Final del Curso"
+   - Preguntas: 30
+   - Tiempo límite: 60 minutos
+   - Intentos permitidos: 1
+   - Calificación mínima: 70%
+   - Retroalimentación: Al finalizar
+
+═══════════════════════════════════════════════════════════════
+4. CONFIGURACIÓN DE PREGUNTAS GIFT
+═══════════════════════════════════════════════════════════════
+
+Las preguntas están en formato GIFT estándar de Moodle:
+
+Sintaxis básica:
+::Question title:: Question text {
+    =Correct answer
+    ~Incorrect answer 1
+    ~Incorrect answer 2
+    ~Incorrect answer 3
+    #Feedback for correct answer
+}
+
+Características:
+✓ 15 preguntas por módulo (120 preguntas totales)
+✓ 4 opciones de respuesta por pregunta
+✓ Retroalimentación detallada para cada respuesta correcta
+✓ Preguntas de opción múltiple únicamente
+✓ Examen final con 30 preguntas integrales
+
+═══════════════════════════════════════════════════════════════
+5. CONFIGURACIÓN DE CALIFICACIONES
+═══════════════════════════════════════════════════════════════
+
+EVALUACIONES POR MÓDULO:
+- Peso: 5% cada una (40% total)
+- Preguntas: 15 por módulo
+- Aprobación: 60% (9/15 correctas)
+- Intentos: 2 permitidos
+
+EXAMEN FINAL:
+- Peso: 60% del curso
+- Preguntas: 30
+- Aprobación: 70% (21/30 correctas)
+- Intentos: 1 permitido
+
+CALIFICACIÓN FINAL:
+- Suma de evaluaciones de módulos (40%) + Examen final (60%)
+- Aprobación del curso: 70% o más
+- Certificado: Disponible al aprobar
+
+═══════════════════════════════════════════════════════════════
+6. ACCESIBILIDAD Y DISEÑO RESPONSIVE
+═══════════════════════════════════════════════════════════════
+
+CARACTERÍSTICAS DEL DISEÑO:
+✓ Diseño responsive: Se adapta a móviles, tablets y desktop
+✓ Navegación intuitiva: Menús claros y estructura lógica
+✓ Contenido multimedia: Imágenes, videos y audios integrados
+✓ Accesibilidad: Contraste adecuado, fuentes legibles
+✓ Animaciones suaves: Transiciones y efectos visuales
+✓ Interactividad: Acordeones, galerías de imágenes
+
+COMPATIBILIDAD:
+- Chrome 90+
+- Firefox 88+
+- Safari 14+
+- Edge 90+
+- iOS Safari 14+
+- Android Chrome 90+
+
+═══════════════════════════════════════════════════════════════
+7. MANTENIMIENTO DEL CURSO
+═══════════════════════════════════════════════════════════════
+
+ACTUALIZACIONES PERIÓDICAS:
+✓ Revisar enlaces de videos de YouTube (cambian frecuentemente)
+✓ Actualizar información de productos y técnicas
+✓ Mantener estadísticas de rendimiento de estudiantes
+✓ Recopilar feedback de estudiantes
+✓ Ajustar preguntas según resultados
+
+BACKUP:
+✓ Realizar backup completo del curso mensualmente
+✓ Guardar copia local de todos los archivos
+✓ Documentar cambios realizados
+✓ Mantener versionado del curso
+
+═══════════════════════════════════════════════════════════════
+8. SOPORTE TÉCNICO
+═══════════════════════════════════════════════════════════════
+
+PROBLEMAS COMUNES:
+
+1. Imágenes no cargan:
+   → Verificar que estén en la misma carpeta que el HTML
+   → Verificar nombres de archivos coincidan exactamente
+   → Verificar extensiones (.jpg, no .jpeg ni .png)
+
+2. Audios no reproducen:
+   → Verificar formato MP3
+   → Verificar ruta de archivo
+   → Probar en diferentes navegadores
+
+3. Videos de YouTube no funcionan:
+   → Reemplazar con enlaces actualizados
+   → Verificar que sean videos públicos
+   → Usar formato embed correcto
+
+4. Acordeones no funcionan:
+   → Verificar que JavaScript esté habilitado
+   → Verificar que no haya errores en consola
+   → Probar en modo incógnito
+
+═══════════════════════════════════════════════════════════════
+9. RECURSOS ADICIONALES
+═══════════════════════════════════════════════════════════════
+
+Para complementar el curso, se recomienda:
+
+📚 LIBROS:
+- "Notes from the Grooming Table" - Melissa Verplank
+- "The Theory of 5" - Melissa Verplank
+- "Ultimate Dog Grooming" - Eileen Geeson
+
+🎥 CANALES DE YOUTUBE:
+- GroomerTV
+- Learn2GroomDogs
+- Paragon School of Pet Grooming
+
+🏆 ASOCIACIONES:
+- International Professional Groomers (IPG)
+- National Dog Groomers Association of America (NDGAA)
+- European Grooming Association (EGA)
+
+═══════════════════════════════════════════════════════════════
+10. CRÉDITOS Y LICENCIA
+═══════════════════════════════════════════════════════════════
+
+Curso desarrollado por: Equipo Educativo Profesional
+Año: 2024
+Duración total: 120 horas
+Módulos: 8
+Imágenes generadas: 77
+Preguntas totales: 150 (120 módulos + 30 examen final)
+
+Licencia: Uso educativo autorizado
+Distribución: Restringida a instituciones educativas
+
+═══════════════════════════════════════════════════════════════
+FIN DE LA GUÍA DE INSTALACIÓN
+═══════════════════════════════════════════════════════════════

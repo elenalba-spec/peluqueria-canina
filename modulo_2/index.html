@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 2: Anatomía y Fisiología Canina - Peluquería Canina Profesional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #11998e;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #11998e;
+        }
+        
+        .hero {
+            margin-top: 80px;
+            padding: 4rem 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .hero-image {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1.5s ease;
+        }
+        
+        main {
+            background: white;
+            margin: 2rem 0;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .section {
+            padding: 3rem 2rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        .section h2 {
+            font-size: 2.5rem;
+            color: #11998e;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .section h3 {
+            font-size: 1.8rem;
+            color: #38ef7d;
+            margin: 2rem 0 1rem 0;
+            border-left: 4px solid #11998e;
+            padding-left: 1rem;
+        }
+        
+        .section p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .section ul {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+        
+        .section li {
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+        
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .gallery-item {
+            background: #f8f9fa;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .gallery-item h4 {
+            padding: 1rem;
+            font-size: 1.2rem;
+            color: #333;
+            text-align: center;
+        }
+        
+        .video-container {
+            margin: 2rem 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .video-container iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+        
+        .audio-player {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .audio-player h4 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .accordion {
+            margin: 2rem 0;
+        }
+        
+        .accordion-item {
+            background: #f8f9fa;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .accordion-header {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .accordion-header:hover {
+            background: linear-gradient(135deg, #38ef7d 0%, #11998e 100%);
+        }
+        
+        .accordion-content {
+            padding: 1.5rem;
+            display: none;
+        }
+        
+        .accordion-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .anatomy-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .anatomy-table th {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .anatomy-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .anatomy-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #11998e20 0%, #38ef7d20 100%);
+            border-left: 4px solid #11998e;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+        }
+        
+        .highlight-box h4 {
+            color: #11998e;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, #ff6b6b20 0%, #ffd93d20 100%);
+            border-left: 4px solid #ff6b6b;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+        }
+        
+        .warning-box h4 {
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .section {
+                padding: 2rem 1rem;
+            }
+            
+            .video-container iframe {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <i class="fas fa-paw"></i> Peluquería Canina Pro
+            </div>
+            <ul class="nav-links">
+                <li><a href="#estructura">Estructura</a></li>
+                <li><a href="#piel">Piel y Pelaje</a></li>
+                <li><a href="#zonas">Zonas Sensibles</a></li>
+                <li><a href="#salud">Salud</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Módulo 2: Anatomía y Fisiología Canina</h1>
+            <p>Comprende la estructura corporal canina para un grooming seguro y profesional</p>
+            <img src="modulo2_diagrama_oseo.jpg" alt="Anatomía canina" class="hero-image">
+        </div>
+    </section>
+
+    <main class="container">
+        <section id="estructura" class="section">
+            <h2><i class="fas fa-bone"></i> Estructura Ósea y Muscular</h2>
+            
+            <h3>Esqueleto Canino (320 huesos)</h3>
+            <p>
+                El perro doméstico posee un esqueleto compuesto por aproximadamente 320 huesos, distribuidos en diferentes regiones del cuerpo. Este sistema esquelético proporciona estructura, protección a los órganos internos y permite el movimiento mediante la articulación con el sistema muscular. Como groomer profesional, comprender la estructura ósea es esencial para manipular al animal de forma segura durante los procedimientos de grooming.
+            </p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="modulo2_diagrama_oseo.jpg" alt="Sistema óseo canino">
+                    <h4>Diagrama completo del sistema óseo canino</h4>
+                </div>
+            </div>
+
+            <table class="anatomy-table">
+                <thead>
+                    <tr>
+                        <th>Región</th>
+                        <th>Número de Huesos</th>
+                        <th>Función Principal</th>
+                        <th>Consideraciones para Grooming</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Cráneo</strong></td>
+                        <td>12-15</td>
+                        <td>Protección del encéfalo</td>
+                        <td>Zona sensible, manipular con cuidado</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Columna Vertebral</strong></td>
+                        <td>50-53</td>
+                        <td>Soporte y protección medular</td>
+                        <td>Apoyar correctamente durante el baño</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tórax</strong></td>
+                        <td>26</td>
+                        <td>Protección de órganos vitales</td>
+                        <td>Evitar presión excesiva</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Extremidades Anteriores</strong></td>
+                        <td>90-92</td>
+                        <td>Movimiento y sustento</td>
+                        <td>Sujeción segura sin forzar</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Extremidades Posteriores</strong></td>
+                        <td>92-94</td>
+                        <td>Propulsión y sustento</td>
+                        <td>Cuidado con articulaciones</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Huesos Auditivos</strong></td>
+                        <td>6</td>
+                        <td>Transmisión del sonido</td>
+                        <td>Zona extrema sensibilidad</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Principales Grupos Musculares</h3>
+            <p>
+                El sistema muscular canino está compuesto por aproximadamente 350 músculos que permiten el movimiento y proporcionan fuerza al animal. Estos músculos se distribuyen en grupos específicos que trabajan coordinadamente. Durante el grooming, es importante comprender la ubicación de los principales grupos musculares para aplicar la presión adecuada y evitar lesiones.
+            </p>
+            
+            <div class="highlight-box">
+                <h4>Grupos Musculares Importantes para el Grooming</h4>
+                <ul>
+                    <li><strong>Músculos del cuello:</strong> Permiten el movimiento de la cabeza, zona de sujeción común</li>
+                    <li><strong>Músculos dorsales:</strong> Soportan el peso del animal, área de masaje durante el baño</li>
+                    <li><strong>Músculos abdominales:</strong> Zona sensible que requiere cuidado especial</li>
+                    <li><strong>Músculos de las extremidades:</strong> Necesitan estiramiento suave durante el grooming</li>
+                    <li><strong>Músculos faciales:</strong> Expresan emociones, zona de modelado en cortes de exposición</li>
+                </ul>
+            </div>
+
+            <h3>Articulaciones Sensibles</h3>
+            <p>
+                Las articulaciones caninas son puntos de especial importancia durante el grooming. Las principales articulaciones sensibles incluyen: las caderas (displasia de cadera es común en muchas razas), los codos, las rodillas, los tobillos y la columna vertebral. Los perros mayores o con problemas articulares requieren manipulación extra cuidadosa y posiciones de grooming adaptadas.
+            </p>
+            
+            <div class="warning-box">
+                <h4><i class="fas fa-exclamation-triangle"></i> Precaución con Articulaciones</h4>
+                <p>Los perros de razas grandes como Labrador, Pastor Alemán y Golden Retriever son propensos a problemas articulares. Siempre consulta al dueño sobre condiciones médicas conocidas y adapta tu técnica de sujeción según las necesidades del animal.</p>
+            </div>
+        </section>
+
+        <section id="piel" class="section">
+            <h2><i class="fas fa-layer-group"></i> Piel y Pelaje</h2>
+            
+            <h3>Estructura de la Piel (3 capas)</h3>
+            <p>
+                La piel del perro está compuesta por tres capas principales: la epidermis, la dermis y la hipodermis. Comprender la estructura y función de cada capa es fundamental para seleccionar los productos adecuados y realizar procedimientos de grooming seguros.
+            </p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="modulo2_estructura_piel.jpg" alt="Estructura de la piel">
+                    <h4>Corte transversal de la piel canina</h4>
+                </div>
+            </div>
+
+            <table class="anatomy-table">
+                <thead>
+                    <tr>
+                        <th>Capa</th>
+                        <th>Espesor</th>
+                        <th>Componentes Principales</th>
+                        <th>Función</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Epidermis</strong></td>
+                        <td>0.1-0.5 mm</td>
+                        <td>Células epiteliales, queratina</td>
+                        <td>Protección, barrera contra patógenos</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dermis</strong></td>
+                        <td>1-3 mm</td>
+                        <td>Folículos pilosos, glándulas, vasos sanguíneos</td>
+                        <td>Soporte, nutrición, sensación</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hipodermis</strong></td>
+                        <td>Variable</td>
+                        <td>Tejido adiposo, vasos mayores</td>
+                        <td>Aislamiento, reserva energética</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Tipos de Glándulas Cutáneas</h3>
+            <p>
+                La piel canina contiene diferentes tipos de glándulas que cumplen funciones específicas. Estas glándulas son importantes para el groomer porque influyen en el tipo de pelaje, el olor y las necesidades de cuidado de cada perro.
+            </p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="modulo2_glándulas_piel.jpg" alt="Glándulas cutáneas">
+                    <h4>Tipos de glándulas de la piel canina</h4>
+                </div>
+            </div>
+
+            <h3>Ciclo de Crecimiento del Pelo</h3>
+            <p>
+                El pelo canino crece en ciclos que consisten en tres fases principales: anágeno, catágeno y telógeno. Comprender estos ciclos es esencial para determinar la frecuencia de grooming y los tratamientos adecuados para cada perro.
+            </p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="modulo2_ciclos_pelo.jpg" alt="Ciclos de crecimiento del pelo">
+                    <h4>Las tres fases del ciclo de crecimiento del pelo</h4>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Fases del Ciclo de Crecimiento</h4>
+                <ul>
+                    <li><strong>Anágeno (fase de crecimiento):</strong> Duración de 1-6 años. El pelo crece activamente desde el folículo. Perros de pelo largo tienen fases anágenas más largas.</li>
+                    <li><strong>Catágeno (fase de transición):</strong> Duración de 2-3 semanas. El folículo se contrae y el crecimiento se detiene.</li>
+                    <li><strong>Telógeno (fase de reposo):</strong> Duración de 1-6 meses. El pelo muerto permanece en el folículo hasta ser reemplazado por uno nuevo.</li>
+                </ul>
+                <p><strong>Dato importante:</strong> Aproximadamente el 85% del pelaje de un perro sano está en fase anágena en cualquier momento.</p>
+            </div>
+        </section>
+
+        <section id="zonas" class="section">
+            <h2><i class="fas fa-map-marked-alt"></i> Zonas Sensibles del Perro</h2>
+            
+            <h3>Ojos y Oídos</h3>
+            <p>
+                Los ojos y oídos son zonas de extrema sensibilidad que requieren cuidados especiales durante el grooming. Los ojos deben ser protegidos durante el baño con gotas lubricantes o protectores oculares. Los oídos deben limpiarse con productos específicos y nunca se debe insertar nada en el canal auditivo más allá del punto donde se puede ver.
+            </p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="modulo2_zonas_sensibles.jpg" alt="Zonas sensibles">
+                    <h4>Mapa de zonas sensibles del perro</h4>
+                </div>
+            </div>
+
+            <h3>Almohadillas y Uñas</h3>
+            <p>
+                Las almohadillas plantares son estructuras complejas que absorben el impacto al caminar y proporcionan tracción. Durante el grooming, es importante revisar el estado de las almohadillas, limpiar entre los cojines y verificar que no haya heridas o cuerpos extraños. Las uñas deben cortarse regularmente, evitando el corte del quick (vaso sanguíneo interno).
+            </p>
+            
+            <div class="warning-box">
+                <h4><i class="fas fa-exclamation-triangle"></i> Cuidado con el Quick</h4>
+                <p>El quick es el vaso sanguíneo que se encuentra dentro de la uña. Cortarlo causa dolor y sangrado. En uñas claras es visible como una zona rosada, pero en uñas oscuras es difícil de ver. Siempre corta pequeñas cantidades y ten a mano producto hemostático.</p>
+            </div>
+
+            <h3>Zonas Genitales y Anal</h3>
+            <p>
+                Estas zonas requieren el mayor cuidado y delicadeza durante el grooming. La limpieza debe realizarse con productos suaves y siempre en dirección adecuada para evitar infecciones. Las glándulas anales deben ser expresadas solo cuando sea necesario y preferiblemente por personal capacitado o veterinarios.
+            </p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="modulo2_puntos_presion.jpg" alt="Puntos de presión">
+                    <h4>Puntos de presión para manejo seguro</h4>
+                </div>
+            </div>
+
+            <table class="anatomy-table">
+                <thead>
+                    <tr>
+                        <th>Zona</th>
+                        <th>Nivel de Sensibilidad</th>
+                        <th>Cuidados Especiales</th>
+                        <th>Riesgos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Ojos</strong></td>
+                        <td>Muy alta</td>
+                        <td>Protectores oculares, gotas lubricantes</td>
+                        <td>Irritación, infección</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Oídos</strong></td>
+                        <td>Muy alta</td>
+                        <td>Limpieza externa solo, productos específicos</td>
+                        <td>Otitis, trauma timpánico</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Almohadillas</strong></td>
+                        <td>Alta</td>
+                        <td>Limpieza suave, hidratación</td>
+                        <td>Grietas, infecciones</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Zona anal</strong></td>
+                        <td>Muy alta</td>
+                        <td>Delicadeza extrema, productos suaves</td>
+                        <td>Irritación, impactación</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vientre</strong></td>
+                        <td>Media</td>
+                        <td>Presión moderada, zonas de teta en hembras</td>
+                        <td>Molestia, rechazo</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="salud" class="section">
+            <h2><i class="fas fa-stethoscope"></i> Reconocimiento de Problemas de Salud</h2>
+            
+            <h3>Signos Dermatológicos</h3>
+            <p>
+                El groomer profesional es frecuentemente el primero en detectar problemas de piel en los perros. Durante el examen previo al grooming y durante el procedimiento, es importante estar atento a signos de alerta que puedan indicar problemas dermatológicos que requieran atención veterinaria.
+            </p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="modulo2_problemas_dermatologicos.jpg" alt="Problemas dermatológicos">
+                    <h4>Galería de problemas dermatológicos comunes</h4>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Signos de Alerta Dermatológica</h4>
+                <ul>
+                    <li><strong>Enrojecimiento o inflamación:</strong> Piel irritada o caliente al tacto</li>
+                    <li><strong>Pérdida de pelo localizada:</strong> Parches sin pelo o con pelo fino</li>
+                    <li><strong>Caspa excesiva:</strong> Descamación anormal de la piel</li>
+                    <li><strong>Olor anormal:</strong> Olor fuerte o desagradable persistente</li>
+                    <li><strong>Lesiones visibles:</strong> Heridas, costras, granos o bultos</li>
+                    <li><strong>Picor excesivo:</strong> Rascado constante o mordedura de la piel</li>
+                    <li><strong>Cambios de color:</strong> Manchas oscuras o claras anormales</li>
+                    <li><strong>Piel engrosada:</strong> Textura anormal o endurecida</li>
+                </ul>
+            </div>
+
+            <h3>Problemas Comunes</h3>
+            <p>
+                Algunos problemas dermatológicos comunes que el groomer puede encontrar incluyen:
+            </p>
+            <ul>
+                <li><strong>Alergias alimentarias o ambientales:</strong> Piel irritada, picor, enrojecimiento</li>
+                <li><strong>Dermatitis atópica:</strong> Reacción alérgica crónica con picor intenso</li>
+                <li><strong>Sarna (demodicosis):</strong> Parásitos que causan pérdida de pelo y lesiones</li>
+                <li><strong>Hongos (dermatofitosis):</strong> Infecciones fúngicas circulares con centro claro</li>
+                <li><strong>Bacterias (pioderma):</strong> Infecciones bacterianas con pus y enrojecimiento</li>
+                <li><strong>Parásitos externos:</strong> Pulgas, garrapatas, ácaros causando irritación</li>
+                <li><strong>Seborrea:</strong> Producción excesiva de sebo causando caspa y olor</li>
+            </ul>
+
+            <h3>Cuándo Derivar al Veterinario</h3>
+            <p>
+                Es crucial que el groomer profesional reconozca cuándo un problema requiere atención veterinaria inmediata. Nunca intentes tratar condiciones médicas por tu cuenta y siempre recomienda consulta veterinaria cuando observes signos preocupantes.
+            </p>
+            
+            <div class="warning-box">
+                <h4><i class="fas fa-exclamation-triangle"></i> Casos que Requieren Veterinario Inmediato</h4>
+                <ul>
+                    <li>Lesiones abiertas o sangrantes</li>
+                    <li>Infecciones evidentes con pus</li>
+                    <li>Problemas respiratorios o dificultad para respirar</li>
+                    <li>Convulsiones o pérdida de conciencia</li>
+                    <li>Severa reacción alérgica (hinchazón facial, urticaria)</li>
+                    <li>Perro en evidente dolor o sufrimiento</li>
+                    <li>Problemas neurológicos (incoordinación, temblores)</li>
+                </ul>
+            </div>
+            
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="modulo2_examen_fisico.jpg" alt="Examen físico">
+                    <h4>Secuencia de examen físico previo al grooming</h4>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Protocolo de Examen Pre-Grooming</h4>
+                <p>Antes de comenzar cualquier procedimiento de grooming, realiza siempre un examen completo del perro:</p>
+                <ol>
+                    <li><strong>Observación general:</strong> Estado del pelaje, comportamiento, postura</li>
+                    <li><strong>Revisión de ojos:</strong> Limpieza, secreciones, enrojecimiento</li>
+                    <li><strong>Examen de oídos:</strong> Olor, suciedad, signos de infección</li>
+                    <li><strong>Inspección de piel:</strong> Parches, lesiones, parásitos, olor anormal</li>
+                    <li><strong>Revisión de uñas:</strong> Longitud, estado, presencia de quick visible</li>
+                    <li><strong>Evaluación de almohadillas:</strong> Grietas, cuerpos extraños, inflamación</li>
+                    <li><strong>Discusión con el cliente:</strong> Comunicar hallazgos y recomendaciones</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-video"></i> Videos Educativos</h2>
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Anatomía Canina Básica"></iframe>
+            </div>
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Examen Físico del Perro"></iframe>
+            </div>
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Problemas Dermatológicos Comunes"></iframe>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-volume-up"></i> Narraciones del Módulo</h2>
+            
+            <div class="audio-player">
+                <h4><i class="fas fa-play-circle"></i> Audio 1: Estructura Ósea y Muscular</h4>
+                <audio controls style="width: 100%; margin-top: 1rem;">
+                    <source src="audio_modulo2.mp3" type="audio/mpeg">
+                    Tu navegador no soporta el reproductor de audio.
+                </audio>
+                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+                    Narración completa sobre el sistema óseo canino, grupos musculares y articulaciones sensibles.
+                </p>
+            </div>
+            
+            <div class="audio-player">
+                <h4><i class="fas fa-play-circle"></i> Audio 2: Piel, Pelaje y Reconocimiento de Problemas</h4>
+                <audio controls style="width: 100%; margin-top: 1rem;">
+                    <source src="audio_modulo2_2.mp3" type="audio/mpeg">
+                    Tu navegador no soporta el reproductor de audio.
+                </audio>
+                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+                    Guía completa sobre estructura de la piel, ciclos de crecimiento del pelo y detección de problemas de salud.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-lightbulb"></i> Contenido Adicional</h2>
+            
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Glosario Anatómico</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <h4>Términos Anatómicos Esenciales</h4>
+                        <ul>
+                            <li><strong>Dorsal:</strong> Parte superior del cuerpo</li>
+                            <li><strong>Ventral:</strong> Parte inferior del cuerpo</li>
+                            <li><strong>Anterior/Cranial:</strong> Hacia la cabeza</li>
+                            <li><strong>Posterior/Caudal:</strong> Hacia la cola</li>
+                            <li><strong>Medial:</strong> Hacia el centro del cuerpo</li>
+                            <li><strong>Lateral:</strong> Hacia los lados del cuerpo</li>
+                            <li><strong>Proximal:</strong> Cerca del cuerpo</li>
+                            <li><strong>Distal:</strong> Lejos del cuerpo</li>
+                            <li><strong>Folículo piloso:</strong> Estructura que produce el pelo</li>
+                            <li><strong>Sebo:</strong> Sustancia grasa protectora</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Razas con Consideraciones Especiales</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <h4>Razas que Requieren Cuidado Extra</h4>
+                        <ul>
+                            <li><strong>Basset Hound, Dachshund:</strong> Problemas de columna, evitar saltos</li>
+                            <li><strong>Labrador, Golden:</strong> Displasia de cadera, cuidado con articulaciones</li>
+                            <li><strong>Pug, Bulldog:</strong> Problemas respiratorios, evitar estrés térmico</li>
+                            <li><strong>Shar Pei:</strong> Piel con pliegues, riesgo de dermatitis</li>
+                            <li><strong>Perros de doble capa:</strong> Muda estacional intensa</li>
+                            <li><strong>Razas gigantes:</strong> Problemas articulares tempranos</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Protocolo de Emergencia</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <h4>Qué Hacer en Caso de Emergencia</h4>
+                        <ol>
+                            <li><strong>Mantén la calma:</strong> Tu tranquilidad afecta al perro</li>
+                            <li><strong>Evalúa la situación:</strong> Tipo de emergencia y gravedad</li>
+                            <li><strong>Asegura el área:</strong> Retira al perro del peligro si es seguro</li>
+                            <li><strong>Contacta al veterinario:</strong> Ten números de emergencia a mano</li>
+                            <li><strong>Primeros auxilios básicos:</strong> Según el tipo de emergencia</li>
+                            <li><strong>Informa al cliente:</strong> Comunicación clara y honesta</li>
+                            <li><strong>Documenta el incidente:</strong> Registro detallado para el seguro</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Curso de Peluquería Canina Profesional - Módulo 2: Anatomía y Fisiología Canina</p>
+            <p>Duración: 18 horas | Total de imágenes: 8 | Videos: 3 | Audios: 2</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('i');
+            
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                // Cerrar todos los demás acordeones
+                document.querySelectorAll('.accordion-content').forEach(acc => {
+                    acc.classList.remove('active');
+                });
+                document.querySelectorAll('.accordion-header i').forEach(ic => {
+                    ic.style.transform = 'rotate(0deg)';
+                });
+                
+                // Abrir el acordeón clickeado
+                content.classList.add('active');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+        
+        // Smooth scrolling para enlaces internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Animación de entrada al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observar todas las secciones
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

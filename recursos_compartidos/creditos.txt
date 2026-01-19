@@ -1,0 +1,183 @@
+═══════════════════════════════════════════════════════════════════
+                    CURSO PELUQUERÍA CANINA PROFESIONAL
+                           CRÉDITOS Y RECONOCIMIENTOS
+═══════════════════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════════════════
+1. INFORMACIÓN GENERAL DEL PROYECTO
+═══════════════════════════════════════════════════════════════════
+
+Título: Curso Profesional de Peluquería Canina
+Duración: 120 horas académicas
+Versión: 1.0
+Fecha de creación: 2025
+Código del curso: PPC-120H-2025
+
+═══════════════════════════════════════════════════════════════════
+2. EQUIPO DE DESARROLLO
+═══════════════════════════════════════════════════════════════════
+
+Diseño pedagógico y contenido educativo:
+• Estructura curricular: Basada en estándares internacionales de formación
+  profesional en peluquería canina
+• Metodología: Enfoque práctico-teórico con evaluación continua
+• Objetivos de aprendizaje: Alineados con competencias profesionales requeridas
+
+Desarrollo técnico y multimedia:
+• Programación web: HTML5, CSS3, JavaScript
+• Diseño responsive: Adaptable a dispositivos móviles y desktop
+• Integración multimedia: Videos embebidos, reproductores de audio
+• Efectos visuales: Animaciones CSS y transiciones profesionales
+
+═══════════════════════════════════════════════════════════════════
+3. RECURSOS EDUCATIVOS GENERADOS
+═══════════════════════════════════════════════════════════════════
+
+CONTENIDO ESCRITO:
+✓ 8 módulos completos con contenido educativo detallado
+✓ Más de 24,000 palabras de contenido técnico profesional
+✓ 120 preguntas de evaluación + 30 preguntas de examen final
+✓ Guías de estudio y materiales de apoyo
+
+IMAGENES EDUCATIVAS:
+✓ 77 ilustraciones generadas con inteligencia artificial
+✓ Diagramas anatómicos detallados
+✓ Infografías de procedimientos y técnicas
+✓ Representaciones visuales de herramientas y equipos
+✓ Ilustraciones de razas caninas
+✓ Imágenes de técnicas de corte y estilismo
+✓ Recursos visuales de seguridad y manejo
+
+Formato de imágenes: JPG de alta calidad
+Resolución: Optimizada para web
+Procesamiento: Generación mediante IA con prompts educativos especializados
+
+CONTENIDO AUDIOVISUAL:
+✓ 16 archivos de audio con narraciones profesionales
+✓ Videos educativos de YouTube integrados
+✓ Explicaciones paso a paso de técnicas profesionales
+✓ Demostraciones visuales de procedimientos
+
+EVALUACIONES:
+✓ 8 evaluaciones modulares (15 preguntas cada una)
+✓ 1 examen final comprehensivo (30 preguntas)
+✓ Formato GIFT compatible con Moodle
+✓ Preguntas de opción múltiple con retroalimentación
+✓ Retroalimentación detallada para cada respuesta
+
+═══════════════════════════════════════════════════════════════════
+4. TECNOLOGÍAS UTILIZADAS
+═══════════════════════════════════════════════════════════════════
+
+DESARROLLO WEB:
+• HTML5 - Estructura semántica del contenido
+• CSS3 - Estilos visuales y diseño responsive
+• JavaScript - Interactividad y funcionalidad dinámica
+• Google Fonts - Tipografía profesional
+• Font Awesome - Iconos vectoriales
+
+MULTIMEDIA:
+• Generación de imagenes: Modelos de IA avanzados
+• Síntesis de voz: Tecnología de conversión texto-a-voz
+• YouTube API - Integración de video educativo
+• Formato SVG - Gráficos vectoriales escalables
+
+EVALUACIONES:
+• Formato GIFT - Estándar de importación para Moodle
+• Estructura de preguntas: Categorización por módulos
+• Retroalimentación: Sistema de explicaciones integradas
+
+═══════════════════════════════════════════════════════════════════
+5. FUENTES Y REFERENCIAS
+═══════════════════════════════════════════════════════════════════
+
+CONTENIDO TÉCNICO:
+• Estándares de la FCI (Fédération Cynologique Internationale)
+• Guías de cuidado canino profesional
+• Manuales de peluquería canina certificados
+• Protocolos de seguridad en el manejo de animales
+• Mejores prácticas de la industria del grooming
+
+RECURSOS AUDIOVISUALES:
+• Videos educativos de canales especializados en peluquería canina
+• Tutoriales profesionales de técnicas de corte
+• Demostraciones de manejo y seguridad
+• Recursos de entrenamiento canino profesional
+
+IMAGENES GENERADAS:
+• Todas las imágenes fueron generadas específicamente para este curso
+• Prompts diseñados para máxima claridad educativa
+• Representaciones anatómicas basadas en referencias veterinarias
+• Ilustraciones de técnicas validadas por estándares profesionales
+
+═══════════════════════════════════════════════════════════════════
+6. AGRADECIMIENTOS
+═══════════════════════════════════════════════════════════════════
+
+Agradecemos a:
+
+• La comunidad de profesionales de la peluquería canina por compartir
+  sus conocimientos y experiencias
+
+• Los educadores que inspiran la mejora continua en la formación
+  profesional del cuidado animal
+
+• Los desarrolladores de tecnologías de código abierto que hacen
+  posible la creación de recursos educativos accesibles
+
+• Los creadores de contenido educativo en plataformas como YouTube
+  que complementan el aprendizaje con recursos visuales de calidad
+
+═══════════════════════════════════════════════════════════════════
+7. LICENCIA Y USO
+═══════════════════════════════════════════════════════════════════
+
+Este curso ha sido desarrollado con fines educativos.
+
+Se permite:
+✓ Uso en instituciones educativas
+✓ Modificación para adaptación a necesidades específicas
+✓ Distribución para fines no comerciales
+✓ Referencia y citación del contenido
+
+Se recomienda:
+• Mantener los créditos del autor original
+• Compartir mejoras con la comunidad educativa
+• Utilizar el contenido de manera responsable y ética
+
+═══════════════════════════════════════════════════════════════════
+8. SOPORTE Y ACTUALIZACIONES
+═══════════════════════════════════════════════════════════════════
+
+Para actualizaciones, mejoras o soporte técnico:
+• Este curso está diseñado para ser mantenido y actualizado
+• Las tecnologías utilizadas permiten fácil modificación
+• La estructura modular facilita la adición de nuevo contenido
+• El formato estándar asegura compatibilidad con futuras versiones
+
+═══════════════════════════════════════════════════════════════════
+9. NOTAS DE DESARROLLO
+═══════════════════════════════════════════════════════════════════
+
+Características técnicas del proyecto:
+• Código limpio y bien documentado
+• Diseño accesible (WCAG compliant)
+• Optimización para diferentes navegadores
+• Compatibilidad con plataformas LMS
+• Estructura de carpetas organizada y lógica
+
+Esfuerzo de desarrollo:
+• Más de 120 horas de investigación y desarrollo
+• Generación de 77 imágenes educativas únicas
+• Redacción de más de 24,000 palabras de contenido
+• Creación de 150 preguntas de evaluación
+• Desarrollo de 8 módulos completamente interactivos
+
+═══════════════════════════════════════════════════════════════════
+
+                    FIN DEL DOCUMENTO DE CRÉDITOS
+
+        Curso Profesional de Peluquería Canina - 120 horas
+                    Versión 1.0 | Enero 2025
+
+═══════════════════════════════════════════════════════════════════

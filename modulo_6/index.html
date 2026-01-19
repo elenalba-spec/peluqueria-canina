@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 6: Técnicas de Corte y Estilismo - Peluquería Canina Profesional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); min-height: 100vh; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: #fa709a; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { text-decoration: none; color: #333; font-weight: 500; transition: color 0.3s ease; }
+        .nav-links a:hover { color: #fa709a; }
+        .hero { margin-top: 80px; padding: 4rem 0; text-align: center; color: white; }
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; animation: fadeInUp 1s ease; }
+        .hero p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; }
+        .hero-image { width: 100%; max-width: 800px; height: 400px; object-fit: cover; border-radius: 20px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); animation: fadeIn 1.5s ease; }
+        main { background: white; margin: 2rem 0; border-radius: 20px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); overflow: hidden; }
+        .section { padding: 3rem 2rem; border-bottom: 1px solid #eee; }
+        .section:last-child { border-bottom: none; }
+        .section h2 { font-size: 2.5rem; color: #fa709a; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+        .section h3 { font-size: 1.8rem; color: #fee140; margin: 2rem 0 1rem 0; border-left: 4px solid #fa709a; padding-left: 1rem; }
+        .section p { margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.8; }
+        .section ul { margin: 1.5rem 0; padding-left: 2rem; }
+        .section li { margin-bottom: 0.8rem; font-size: 1.1rem; }
+        .image-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0; }
+        .gallery-item { background: #f8f9fa; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease; }
+        .gallery-item:hover { transform: translateY(-5px); }
+        .gallery-item img { width: 100%; height: 250px; object-fit: cover; }
+        .gallery-item h4 { padding: 1rem; font-size: 1.2rem; color: #333; text-align: center; }
+        .video-container { margin: 2rem 0; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
+        .video-container iframe { width: 100%; height: 500px; border: none; }
+        .audio-player { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: white; padding: 2rem; border-radius: 15px; margin: 2rem 0; text-align: center; }
+        .audio-player h4 { margin-bottom: 1rem; font-size: 1.5rem; }
+        .accordion { margin: 2rem 0; }
+        .accordion-item { background: #f8f9fa; margin-bottom: 1rem; border-radius: 10px; overflow: hidden; }
+        .accordion-header { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: white; padding: 1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; }
+        .accordion-header:hover { background: linear-gradient(135deg, #fee140 0%, #fa709a 100%); }
+        .accordion-content { padding: 1.5rem; display: none; }
+        .accordion-content.active { display: block; animation: fadeIn 0.5s ease; }
+        .cutting-table { width: 100%; border-collapse: collapse; margin: 2rem 0; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
+        .cutting-table th { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: white; padding: 1rem; text-align: left; font-weight: 600; }
+        .cutting-table td { padding: 1rem; border-bottom: 1px solid #eee; }
+        .cutting-table tr:hover { background: #f8f9fa; }
+        .highlight-box { background: linear-gradient(135deg, #fa709a20 0%, #fee14020 100%); border-left: 4px solid #fa709a; padding: 1.5rem; margin: 2rem 0; border-radius: 10px; }
+        .highlight-box h4 { color: #fa709a; margin-bottom: 1rem; font-size: 1.3rem; }
+        footer { background: #333; color: white; text-align: center; padding: 2rem 0; margin-top: 2rem; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @media (max-width: 768px) { .hero h1 { font-size: 2rem; } .nav-links { display: none; } .section { padding: 2rem 1rem; } .video-container iframe { height: 300px; } }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo"><i class="fas fa-paw"></i> Peluquería Canina Pro</div>
+            <ul class="nav-links">
+                <li><a href="#comerciales">Cortes Comerciales</a></li>
+                <li><a href="#maquina">Técnicas Máquina</a></li>
+                <li><a href="#tijera">Técnicas Tijera</a></li>
+                <li><a href="#exposicion">Exposición</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Módulo 6: Técnicas de Corte y Estilismo</h1>
+            <p>Domina las técnicas avanzadas de corte y crea estilos profesionales</p>
+            <img src="modulo6_cortes_comerciales.jpg" alt="Cortes comerciales" class="hero-image">
+        </div>
+    </section>
+
+    <main class="container">
+        <section id="comerciales" class="section">
+            <h2><i class="fas fa-cut"></i> Cortes Comerciales Básicos</h2>
+            
+            <h3>Summer Cut (Corte de Verano)</h3>
+            <p>El Summer Cut es el corte más popular y solicitado en peluquería canina. Consiste en cortar todo el pelaje a una longitud uniforme corta, generalmente entre 6-12mm, ideal para el clima cálido y para perros activos. Este corte es práctico, fácil de mantener y cómodo para el perro. Se realiza principalmente con máquina usando peines guía apropiados.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo6_cortes_comerciales.jpg" alt="Cortes comerciales"><h4>Comparativa visual de 6 cortes comerciales populares</h4></div>
+            </div>
+
+            <h3>Puppy Cut (Corte de Cachorro)</h3>
+            <p>El Puppy Cut es un corte suave y natural que mantiene al perro con apariencia de cachorro. Se corta el pelo a una longitud uniforme de 2-4 cm en todo el cuerpo, con un acabado suave y redondeado. Es ideal para razas como Bichón, Caniche y Shih Tzu, y requiere mantenimiento cada 4-6 semanas.</p>
+
+            <h3>Cut and Clean (Corte y Limpieza)</h3>
+            <p>El Cut and Clean es un servicio básico que incluye corte higiénico de zonas específicas: zona genital, zona anal, entre almohadillas, y limpieza de cara. No incluye corte completo del cuerpo, manteniendo el pelo natural de la raza. Es ideal para perros que necesitan mantenimiento básico entre cortes completos.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo6_corte_verano.jpg" alt="Corte de verano"><h4>Secuencia paso a paso de corte de verano</h4></div>
+            </div>
+
+            <table class="cutting-table">
+                <thead>
+                    <tr>
+                        <th>Tipo de Corte</th>
+                        <th>Longitud</th>
+                        <th>Razas Ideales</th>
+                        <th>Frecuencia</th>
+                        <th>Dificultad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Summer Cut</strong></td><td>6-12mm</td><td>Mixtos, activos</td><td>Cada 6-8 semanas</td><td>Baja</td></tr>
+                    <tr><td><strong>Puppy Cut</strong></td><td>2-4cm</td><td>Bichón, Caniche, Shih Tzu</td><td>Cada 4-6 semanas</td><td>Media</td></tr>
+                    <tr><td><strong>Cut and Clean</strong></td><td>Variable</td><td>Todas las razas</td><td>Cada 2-4 semanas</td><td>Baja</td></tr>
+                    <tr><td><strong>Kennel Cut</strong></td><td>6mm</td><td>Caniche, Doodle</td><td>Cada 6-8 semanas</td><td>Baja</td></tr>
+                    <tr><td><strong>Teddy Bear Cut</strong></td><td>2-3cm cuerpo, cara redondeada</td><td>Pequeños de compañía</td><td>Cada 4-6 semanas</td><td>Media</td></tr>
+                    <tr><td><strong>Lamb Cut</strong></td><td>Cuerpo corto, patas largas</td><td>Poodle, Terrier</td><td>Cada 4-6 semanas</td><td>Alta</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="maquina" class="section">
+            <h2><i class="fas fa-robot"></i> Técnicas con Máquina</h2>
+            
+            <h3>Dirección y Ángulo de Corte</h3>
+            <p>La dirección y ángulo de la máquina determinan el resultado del corte. Los ángulos más comunes son 0° (contra el pelo, corte más corto), 45° (corte medio), y 90° (a favor del pelo, corte más largo). El ángulo correcto depende del tipo de pelo, longitud deseada y área del cuerpo. Practica diferentes ángulos para dominar la técnica.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo6_angulos_corte.jpg" alt="Ángulos de corte"><h4>Diagrama de ángulos de corte con máquina</h4></div>
+            </div>
+
+            <h3>Trabajo por Zonas</h3>
+            <p>El corte por zonas asegura uniformidad y eficiencia. Comienza por el lomo, trabajando desde el cuello hacia la cola. Luego el vientre, costados, y finalmente las extremidades. Cada zona puede requerir dirección de corte diferente según el crecimiento natural del pelo. Mantén la piel tensa con tu mano libre para evitar arrugas y cortes accidentales.</p>
+
+            <h3>Acabados Profesionales</h3>
+            <p>Los acabados profesionales distinguen un corte amateur de uno profesional. Utiliza pasadas finales con la máquina en dirección uniforme para eliminar líneas visibles. Revisa el corte bajo buena iluminación, palpando con las manos para detectar irregularidades. Los acabados perfectos requieren paciencia y atención al detalle.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo6_desfilado.jpg" alt="Técnicas de desfilado"><h4>Técnicas de desfilado con tijeras de adelgazar</h4></div>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Técnicas de Acabado Profesional</h4>
+                <ul>
+                    <li><strong>Passadas finales:</strong> Una última pasada uniforme en dirección consistente</li>
+                    <li><strong>Revisión táctil:</strong> Palpar el pelaje para detectar irregularidades</li>
+                    <li><strong>Iluminación adecuada:</strong> Verificar bajo luz directa para ver imperfecciones</li>
+                    <li><strong>Corrección de líneas:</strong> Suavizar transiciones entre zonas</li>
+                    <li><strong>Detalles finales:</strong> Revisar zonas difíciles como axilas e ingles</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="tijera" class="section">
+            <h2><i class="fas fa-scissors"></i> Técnicas con Tijera</h2>
+            
+            <h3>Cortes de Precisión</h3>
+            <p>Los cortes de precisión con tijera requieren habilidad y práctica constante. Utiliza tijeras rectas de alta calidad, manteniendo un ángulo de 45 grados respecto al cuerpo del perro. Los cortes deben ser fluidos y continuos, nunca forzados o cortados. Practica diferentes técnicas como el apuntado (cortes pequeños para definir forma), el desfilado (cortes diagonales para textura), y el texturizado (remover cantidades específicas de pelo).</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo6_herramientas_tecnica.jpg" alt="Herramientas específicas"><h4>Infografía de herramientas específicas para cada técnica</h4></div>
+            </div>
+
+            <h3>Desfilado y Texturizado</h3>
+            <p>El desfilado crea transiciones suaves entre zonas de diferente longitud, eliminando líneas duras. Se realiza con tijeras de adelgazar o con tijeras rectas en ángulo. El texturizado añade movimiento y ligereza al pelaje, siendo ideal para razas con pelo denso. Ambas técnicas requieren práctica para dominar la cantidad exacta de pelo a remover.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo6_errores_corte.jpg" alt="Errores comunes"><h4>Errores comunes en el corte y cómo corregirlos</h4></div>
+            </div>
+
+            <h3>Modelado de Cabeza</h3>
+            <p>El modelado de cabeza es una de las técnicas más desafiantes y distintivas del grooming profesional. Cada raza tiene estándares específicos de forma para la cabeza. El Caniche requiere una forma redonda característica, el Schnauzer tiene barba y cejas definidas, y el Yorkshire Terrier lleva el pelo facial en envolturas o corto redondeado.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo6_modelado_cabez.jpg" alt="Modelado de cabeza"><h4>Modelado de cabeza de Caniche paso a paso</h4></div>
+            </div>
+
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo6_proporciones.jpg" alt="Proporciones estéticas"><h4>Diagrama de proporciones estéticas en perros</h4></div>
+                <div class="gallery-item"><img src="modulo6_acabado_profesional.jpg" alt="Acabado profesional"><h4>Técnicas de acabado profesional</h4></div>
+            </div>
+        </section>
+
+        <section id="exposicion" class="section">
+            <h2><i class="fas fa-trophy"></i> Cortes de Exposición</h2>
+            
+            <h3>Estándares por Raza</h3>
+            <p>Los cortes de exposición siguen estándares específicos establecidos por asociaciones caninas como la FCI o AKC. Cada raza tiene requisitos detallados de longitud, forma y acabado que deben seguirse rigurosamente para competencias. Estos cortes requieren conocimiento profundo de la raza, habilidades avanzadas y dedicación significativa.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo6_cortes_exposicion.jpg" alt="Cortes de exposición"><h4>Cortes de exposición: Caniche Continental, Schnauzer tradicional, Westie show</h4></div>
+            </div>
+
+            <h3>Técnicas Avanzadas</h3>
+            <p>Las técnicas avanzadas de grooming incluyen hand-stripping para razas de pelo duro, creación de pompones y adornos para Caniches, y técnicas de scissoring (corte con tijera puro) que crean formas geométricas precisas. Estas técnicas requieren años de práctica y dedicación para dominarlas completamente.</p>
+
+            <h3>Preparación para Shows</h3>
+            <p>La preparación para shows caninos comienza meses antes del evento. Esto incluye un programa de cuidado del pelaje específico, entrenamiento para presentación, y práctica de los movimientos requeridos en el ring. El día del show, el grooming final debe realizar horas antes de la competencia para máxima presentación.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo6_estilismo_creativo.jpg" alt="Estilismo creativo"><h4>Estilismo creativo: tintes naturales y decoraciones</h4></div>
+                <div class="gallery-item"><img src="modulo6_corte_higienico.jpg" alt="Corte higiénico"><h4>Secuencia de corte higiénico con medidas</h4></div>
+                <div class="gallery-item"><img src="modulo6_comercial_vs_show.jpg" alt="Comercial vs Show"><h4>Comparativa corte comercial vs show en misma raza</h4></div>
+                <div class="gallery-item"><img src="modulo6_tipos_cara.jpg" alt="Tipos de cara"><h4>Técnicas para diferentes tipos de cara</h4></div>
+                <div class="gallery-item"><img src="modulo6_mantenimiento_cliente.jpg" alt="Mantenimiento cliente"><h4>Infografía de mantenimiento entre cortes para clientes</h4></div>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Cortes de Exposición Populares</h4>
+                <ul>
+                    <li><strong>Caniche Continental:</strong> Pelo largo en cabeza, cola y patas; cuerpo corto</li>
+                    <li><strong>Caniche English Saddle:</strong> Similar al Continental con variaciones en patas</li>
+                    <li><strong>Schnauzer Tradicional:</strong> Cuerpo corto, barba y cejas distintivas</li>
+                    <li><strong>Westie Show:</strong> Pelo duro en forma de caída, cara redondeada</li>
+                    <li><strong>Yorkie Show:</strong> Pelo largo sedoso, parte central en la cabeza</li>
+                    <li><strong>Bichon Frisé Show:</strong> Pelo rizado esponjoso, forma redondeada</li>
+                </ul>
+            </div>
+
+            <h3>Estilismo Creativo</h3>
+            <p>El estilismo creativo ha ganado popularidad en los últimos años, incluyendo tintes temporales seguros, decoraciones con lazos y accesorios, y cortes temáticos para ocasiones especiales. Es importante usar solo productos seguros para perros y obtener consentimiento del cliente antes de cualquier modificación creativa.</p>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-video"></i> Videos Educativos</h2>
+            <div class="video-container"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Técnicas de Corte Básico"></iframe></div>
+            <div class="video-container"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Modelado de Cabeza Profesional"></iframe></div>
+            <div class="video-container"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Cortes de Exposición"></iframe></div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-volume-up"></i> Narraciones del Módulo</h2>
+            <div class="audio-player">
+                <h4><i class="fas fa-play-circle"></i> Audio 1: Cortes Comerciales y Técnicas con Máquina</h4>
+                <audio controls style="width: 100%; margin-top: 1rem;"><source src="audio_modulo6.mp3" type="audio/mpeg">Tu navegador no soporta el reproductor de audio.</audio>
+                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">Guía completa sobre cortes comerciales populares y técnicas con máquina de corte.</p>
+            </div>
+            <div class="audio-player">
+                <h4><i class="fas fa-play-circle"></i> Audio 2: Técnicas con Tijera y Cortes de Exposición</h4>
+                <audio controls style="width: 100%; margin-top: 1rem;"><source src="audio_modulo6_2.mp3" type="audio/mpeg">Tu navegador no soporta el reproductor de audio.</audio>
+                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">Técnicas avanzadas con tijera y estándares de cortes de exposición.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-lightbulb"></i> Contenido Adicional</h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)"><span>Errores Comunes y Soluciones</span><i class="fas fa-chevron-down"></i></div>
+                    <div class="accordion-content">
+                        <h4>Problemas Frecuentes y Cómo Solucionarlos</h4>
+                        <ul>
+                            <li><strong>Líneas visibles:</strong> Suavizar con tijeras de adelgazar o pasadas finales</li>
+                            <li><strong>Corte desigual:</strong> Revisar con el perro en posición natural</li>
+                            <li><strong>Transiciones duras:</strong> Desfilado para suavizar cambios de longitud</li>
+                            <li><strong>Pelo que se levanta:</strong> Humedecer ligeramente y resecar</li>
+                            <li><strong>Forma asimétrica:</strong> Medir y comparar ambos lados</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)"><span>Consejos para Clientes</span><i class="fas fa-chevron-down"></i></div>
+                    <div class="accordion-content">
+                        <h4>Educación del Cliente</h4>
+                        <ul>
+                            <li>Explicar mantenimiento entre cortes</li>
+                            <li>Recomendar cepillado diario para razas de pelo largo</li>
+                            <li>Educar sobre frecuencia de baños en casa</li>
+                            <li>Sugerir productos apropiados para uso doméstico</li>
+                            <li>Informar sobre señales de que necesitan corte</li>
+                            <li>Proporcionar instrucciones para cuidado de ojos y oídos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Curso de Peluquería Canina Profesional - Módulo 6: Técnicas de Corte y Estilismo</p>
+            <p>Duración: 22 horas | Total de imágenes: 15 | Videos: 3 | Audios: 2</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('i');
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                document.querySelectorAll('.accordion-content').forEach(acc => acc.classList.remove('active'));
+                document.querySelectorAll('.accordion-header i').forEach(ic => ic.style.transform = 'rotate(0deg)');
+                content.classList.add('active');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

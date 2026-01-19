@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 1: Introducción y Fundamentos - Peluquería Canina Profesional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #667eea;
+        }
+        
+        .hero {
+            margin-top: 80px;
+            padding: 4rem 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .hero-image {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1.5s ease;
+        }
+        
+        main {
+            background: white;
+            margin: 2rem 0;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .section {
+            padding: 3rem 2rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        .section h2 {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .section h3 {
+            font-size: 1.8rem;
+            color: #764ba2;
+            margin: 2rem 0 1rem 0;
+            border-left: 4px solid #667eea;
+            padding-left: 1rem;
+        }
+        
+        .section p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .section ul {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+        
+        .section li {
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+        
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .gallery-item {
+            background: #f8f9fa;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .gallery-item h4 {
+            padding: 1rem;
+            font-size: 1.2rem;
+            color: #333;
+            text-align: center;
+        }
+        
+        .video-container {
+            margin: 2rem 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .video-container iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+        
+        .audio-player {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .audio-player h4 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .accordion {
+            margin: 2rem 0;
+        }
+        
+        .accordion-item {
+            background: #f8f9fa;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .accordion-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .accordion-header:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+        
+        .accordion-content {
+            padding: 1.5rem;
+            display: none;
+        }
+        
+        .accordion-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .comparison-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .comparison-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+            border-left: 4px solid #667eea;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+        }
+        
+        .highlight-box h4 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .section {
+                padding: 2rem 1rem;
+            }
+            
+            .video-container iframe {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <i class="fas fa-paw"></i> Peluquería Canina Pro
+            </div>
+            <ul class="nav-links">
+                <li><a href="#historia">Historia</a></li>
+                <li><a href="#profesional">Profesional</a></li>
+                <li><a href="#establecimientos">Establecimientos</a></li>
+                <li><a href="#instalaciones">Instalaciones</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Módulo 1: Introducción y Fundamentos</h1>
+            <p>Descubre la historia y fundamentos de la peluquería canina profesional</p>
+            <img src="modulo1_profesional_moderno.jpg" alt="Peluquero profesional moderno" class="hero-image">
+        </div>
+    </section>
+
+    <main class="container">
+        <section id="historia" class="section">
+            <h2><i class="fas fa-history"></i> Historia de la Peluquería Canina</h2>
+            
+            <h3>Antiguo Egipto y Grecia</h3>
+            <p>
+                Los orígenes de la peluquería canina se remontan a las antiguas civilizaciones egipcia y griega. En el Antiguo Egipto, los perros eran considerados animales sagrados y recibían cuidados especiales que incluían la limpieza y el cuidado de su pelaje. Los jeroglíficos encontrados en tumbas faraónicas muestran escenas de personas cuidando a perros de la realeza, utilizando herramientas primitivas para peinar y limpiar su pelaje.
+            </p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="modulo1_historia_egipto.jpg" alt="Historia Egipto">
+                    <h4>Representación histórica del Antiguo Egipto</h4>
+                </div>
+            </div>
+            
+            <p>
+                Los griegos también valoraban altamente el cuidado de los perros, especialmente los de caza. Los dueños de perros de caza empleaban a ayudantes especiales que se encargaban de mantener el pelaje de los animales en condiciones óptimas para la caza. Estos primeros "groomers" utilizaban aceites naturales y peines de hueso para mantener el pelaje saludable y libre de enredos.
+            </p>
+
+            <h3>Edad Media y Renacimiento</h3>
+            <p>
+                Durante la Edad Media, el cuidado de los perros de caza se convirtió en una profesión reconocida en las cortes europeas. Los nobles mantenían a "perreros" o "cuidadores de perros" que eran responsables del bienestar de los animales de caza, incluyendo su aseo y presentación. Estos profesionales desarrollaron técnicas específicas para diferentes razas de perros de caza.
+            </p>
+            
+            <p>
+                En el Renacimiento, el cuidado de perros de compañía se popularizó entre la aristocracia. Los pintores renacentistas frecuentemente retrataban a la nobleza con sus perros bien cuidados, lo que indica la importancia que se daba a la presentación de los animales domésticos.
+            </p>
+
+            <h3>Siglo XIX: Nacimiento Profesional</h3>
+            <p>
+                El siglo XIX marcó el nacimiento de la peluquería canina como profesión reconocida. En 1933, Madame Andras inauguró el primer salón profesional de peluquería canina en París, Francia. Este evento histórico estableció las bases de la industria moderna del grooming, introduciendo técnicas profesionales y estándares de calidad que aún se utilizan hoy.
+            </p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="modulo1_salon_paris.jpg" alt="Salón París siglo XIX">
+                    <h4>Primer salón de peluquería canina en París</h4>
+                </div>
+            </div>
+
+            <h3>Era Moderna y Actualidad</h3>
+            <p>
+                En la actualidad, la peluquería canina es una industria global valorada en miles de millones de dólares. Los groomers profesionales utilizan tecnología de vanguardia, productos especializados y técnicas avanzadas para garantizar el bienestar y la belleza de los perros. La profesión ha evolucionado para incluir especializaciones en razas específicas, shows de exposición canina y servicios móviles.
+            </p>
+        </section>
+
+        <section id="profesional" class="section">
+            <h2><i class="fas fa-user-tie"></i> El Profesional del Grooming</h2>
+            
+            <h3>Perfil del Peluquero Canino</h3>
+            <p>
+                El peluquero canino profesional es un especialista en el cuidado y la estética de los perros. Este profesional combina habilidades técnicas con conocimientos profundos de anatomía canina, comportamiento animal y técnicas de grooming. Un groomer exitoso no solo domina las técnicas de corte y baño, sino que también posee habilidades interpersonales excepcionales para trabajar tanto con perros como con sus dueños.
+            </p>
+            
+            <div class="highlight-box">
+                <h4>Características del Groomer Profesional</h4>
+                <ul>
+                    <li><strong>Paciencia infinita:</strong> Trabajar con animales requiere calma y paciencia, especialmente con perros nerviosos o agresivos.</li>
+                    <li><strong>Fuerza física:</strong> Levantar y manipular perros de diferentes tamaños requiere buena condición física.</li>
+                    <li><strong>Atención al detalle:</strong> Los cortes de precisión y los acabados perfectos requieren ojo clínico.</li>
+                    <li><strong>Empatía animal:</strong> Comprender las necesidades y emociones de los perros es fundamental.</li>
+                    <li><strong>Habilidades de comunicación:</strong> Explicar servicios y cuidados a los clientes de forma clara.</li>
+                </ul>
+            </div>
+
+            <h3>Competencias Técnicas y Personales</h3>
+            <p>
+                Las competencias técnicas del groomer profesional abarcan un amplio espectro de habilidades. Técnicamente, debe dominar el manejo de herramientas como máquinas de corte, tijeras profesionales, secadores y productos de higiene. Debe conocer las características de cada raza y sus necesidades específicas de grooming.
+            </p>
+            
+            <p>
+                Las competencias personales incluyen la capacidad de mantener la calma bajo presión, trabajar de forma eficiente sin sacrificar la calidad, y establecer relaciones de confianza tanto con los animales como con sus dueños. La empatía y la comprensión del comportamiento canino son habilidades esenciales que se desarrollan con la experiencia.
+            </p>
+
+            <h3>Ética Profesional y Bienestar Animal</h3>
+            <p>
+                La ética profesional en la peluquería canina se centra en el bienestar del animal. Un groomer profesional nunca debe priorizar la estética sobre la seguridad y el confort del perro. Esto significa reconocer cuándo un animal está demasiado estresado, cuándo un corte puede ser perjudicial, y cuándo es necesario derivar al veterinario.
+            </p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="modulo1_codigo_etico.jpg" alt="Código ético">
+                    <h4>Principios fundamentales de ética profesional</h4>
+                </div>
+            </div>
+        </section>
+
+        <section id="establecimientos" class="section">
+            <h2><i class="fas fa-store"></i> Tipos de Establecimientos</h2>
+            
+            <h3>Peluquerías Fijas</h3>
+            <p>
+                Las peluquerías caninas fijas son establecimientos dedicados exclusivamente al grooming canino. Estos locales ofrecen la ventaja de contar con equipamiento completo y especializado, incluyendo bañeras profesionales, mesas de grooming, secadores industriales y una amplia variedad de productos. Las peluquerías fijas pueden atender múltiples clientes simultáneamente y ofrecen un ambiente controlado y seguro para los procedimientos.
+            </p>
+            
+            <h3>Servicios Móviles</h3>
+            <p>
+                Los servicios móviles de grooming han ganado popularidad en los últimos años. Estos consisten en vehículos adaptados con todo el equipamiento necesario para realizar servicios de peluquería canina en la puerta del cliente. La principal ventaja es la comodidad para el cliente y el menor estrés para el perro al no tener que transportarse.
+            </p>
+            
+            <h3>Servicios a Domicilio</h3>
+            <p>
+                Los servicios a domicilio implican que el groomer se traslade a la casa del cliente con el equipamiento portátil necesario. Esta opción es ideal para perros mayores, con movilidad reducida o que sufren ansiedad severa. El groomer debe contar con herramientas portátiles de alta calidad y adaptarse a las condiciones del hogar del cliente.
+            </p>
+            
+            <h3>En Clínicas Veterinarias</h3>
+            <p>
+                Muchas clínicas veterinarias ofrecen servicios de grooming como complemento a sus servicios médicos. Esta opción es especialmente beneficiosa para perros con condiciones médicas especiales, ya que cuentan con el respaldo veterinario inmediato. Los groomers que trabajan en clínicas deben tener conocimientos adicionales sobre medicación y condiciones especiales.
+            </p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="modulo1_tipos_negocio.jpg" alt="Tipos de negocio">
+                    <h4>Comparativa de tipos de establecimientos de grooming</h4>
+                </div>
+            </div>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Tipo de Establecimiento</th>
+                        <th>Ventajas</th>
+                        <th>Desventajas</th>
+                        <th>Inversión Inicial</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Peluquería Fija</strong></td>
+                        <td>Equipamiento completo, múltiples clientes, ambiente controlado</td>
+                        <td>Alquiler, costos fijos, ubicación limitada</td>
+                        <td>Alta</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Servicio Móvil</strong></td>
+                        <td>Comodidad cliente, menor estrés perro, mayor alcance</td>
+                        <td>Costo vehículo, mantenimiento, espacio limitado</td>
+                        <td>Media-Alta</td>
+                    </tr>
+                    <tr>
+                        <td><strong>A Domicilio</strong></td>
+                        <td>Baja inversión, personalizado, ideal casos especiales</td>
+                        <td>Transporte equipamiento, limitado por espacio cliente</td>
+                        <td>Baja</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Clínica Veterinaria</strong></td>
+                        <td>Respaldo médico, clientela fidelizada, credibilidad</td>
+                        <td>Dependencia clínica, horarios limitados</td>
+                        <td>Variable</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="instalaciones" class="section">
+            <h2><i class="fas fa-home"></i> Instalaciones Profesionales</h2>
+            
+            <h3>Distribución de Espacios</h3>
+            <p>
+                Una peluquería canina profesional debe estar diseñada pensando en la eficiencia y el flujo de trabajo. La distribución típica incluye: área de recepción y espera, área de baño, zona de secado, área de corte y peinado, área de almacenamiento, y baño para empleados. Cada zona debe estar claramente delimitada y equipada adecuadamente.
+            </p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="modulo1_distribucion_salon.jpg" alt="Distribución salón">
+                    <h4>Plano de distribución de peluquería canina moderna</h4>
+                </div>
+            </div>
+
+            <h3>Equipamiento Básico</h3>
+            <p>
+                El equipamiento básico de una peluquería canina profesional incluye:
+            </p>
+            <ul>
+                <li><strong>Mesas de grooming:</strong> Estables, ajustables en altura, con sistema de sujeción seguro</li>
+                <li><strong>Bañeras profesionales:</strong> De acero inoxidable, con sistema de drenaje eficiente</li>
+                <li><strong>Secadores industriales:</strong> De mano y de casco, con control de temperatura</li>
+                <li><strong>Máquinas de corte:</strong> Profesionales, con múltiples cuchillas</li>
+                <li><strong>Juego completo de tijeras:</strong> Rectas, curvas, de adelgazar</li>
+                <li><strong>Cepillos y peines:</strong> Para diferentes tipos de pelaje</li>
+                <li><strong>Productos de higiene:</strong> Champús, acondicionadores, desenredantes</li>
+                <li><strong>Sistema de ventilación:</strong> Para mantener el aire limpio</li>
+            </ul>
+
+            <h3>Normativas de Seguridad</h3>
+            <p>
+                Las instalaciones deben cumplir con estrictas normativas de seguridad. Esto incluye:
+            </p>
+            <ul>
+                <li>Sistemas de ventilación adecuados para remover humedad y olores</li>
+                <li>Instalaciones eléctricas certificadas y protegidas contra agua</li>
+                <li>Sistemas de agua caliente con control de temperatura</li>
+                <li>Superficies antideslizantes en áreas húmedas</li>
+                <li>Botiquín de primeros auxilios accesible y completo</li>
+                <li>Extintores de incendios en lugares visibles</li>
+                <li>Señalización clara de zonas de riesgo</li>
+                <li>Protocolos de emergencia claramente establecidos</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-video"></i> Videos Educativos</h2>
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Introducción a la Peluquería Canina"></iframe>
+            </div>
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Historia del Grooming"></iframe>
+            </div>
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Instalaciones Profesionales"></iframe>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-volume-up"></i> Narraciones del Módulo</h2>
+            
+            <div class="audio-player">
+                <h4><i class="fas fa-play-circle"></i> Audio 1: Historia de la Peluquería Canina</h4>
+                <audio controls style="width: 100%; margin-top: 1rem;">
+                    <source src="audio_modulo1.mp3" type="audio/mpeg">
+                    Tu navegador no soporta el reproductor de audio.
+                </audio>
+                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+                    Narración completa sobre la evolución histórica de la peluquería canina, desde el Antiguo Egipto hasta la actualidad.
+                </p>
+            </div>
+            
+            <div class="audio-player">
+                <h4><i class="fas fa-play-circle"></i> Audio 2: El Profesional del Grooming</h4>
+                <audio controls style="width: 100%; margin-top: 1rem;">
+                    <source src="audio_modulo1_2.mp3" type="audio/mpeg">
+                    Tu navegador no soporta el reproductor de audio.
+                </audio>
+                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+                    Descripción detallada del perfil, competencias y ética del profesional groomer.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-lightbulb"></i> Contenido Adicional</h2>
+            
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Glosario de Términos Profesionales</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <h4>Términos Esenciales del Grooming</h4>
+                        <ul>
+                            <li><strong>Grooming:</strong> Término inglés para peluquería canina</li>
+                            <li><strong>Hand-stripping:</strong> Técnica de depilación manual</li>
+                            <li><strong>Clipper:</strong> Máquina de corte eléctrica</li>
+                            <li><strong>Guard:</strong> Peine guía para máquinas</li>
+                            <li><strong>Dematting:</strong> Proceso de eliminación de enredos</li>
+                            <li><strong>Undercoat:</strong> Pelo de abrigo interno</li>
+                            <li><strong>Topcoat:</strong> Pelo externo protector</li>
+                            <li><strong>Blow dryer:</strong> Secador de alta velocidad</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Normativas Legales</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <h4>Requisitos Legales para Peluquerías Caninas</h4>
+                        <p>Las peluquerías caninas deben cumplir con diversas normativas dependiendo del país y región. Generalmente incluyen:</p>
+                        <ul>
+                            <li>Licencia de actividad económica</li>
+                            <li>Certificación de manipulación de alimentos (si se ofrecen snacks)</li>
+                            <li>Seguro de responsabilidad civil</li>
+                            <li>Registro de animales atendidos</li>
+                            <li>Cumplimiento de normativas de bienestar animal</li>
+                            <li>Certificaciones de formación profesional</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Tendencias del Mercado</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <h4>Tendencias Actuales en la Industria</h4>
+                        <p>La industria de la peluquería canina está en constante evolución. Algunas tendencias actuales incluyen:</p>
+                        <ul>
+                            <li><strong>Productos naturales y orgánicos:</strong> Creciente demanda de productos ecológicos</li>
+                            <li><strong>Grooming spa:</strong> Servicios de spa y bienestar para perros</li>
+                            <li><strong>Fotografía profesional:</strong> Sesiones de fotos antes/después</li>
+                            <li><strong>Servicios especializados:</strong> Tratamientos específicos por raza</li>
+                            <li><strong>Tecnología móvil:</strong> Apps para agendamiento y seguimiento</li>
+                            <li><strong>Sostenibilidad:</strong> Prácticas eco-amigables</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Curso de Peluquería Canina Profesional - Módulo 1: Introducción y Fundamentos</p>
+            <p>Duración: 15 horas | Total de imágenes: 6 | Videos: 3 | Audios: 2</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('i');
+            
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                // Cerrar todos los demás acordeones
+                document.querySelectorAll('.accordion-content').forEach(acc => {
+                    acc.classList.remove('active');
+                });
+                document.querySelectorAll('.accordion-header i').forEach(ic => {
+                    ic.style.transform = 'rotate(0deg)';
+                });
+                
+                // Abrir el acordeón clickeado
+                content.classList.add('active');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+        
+        // Smooth scrolling para enlaces internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Animación de entrada al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observar todas las secciones
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

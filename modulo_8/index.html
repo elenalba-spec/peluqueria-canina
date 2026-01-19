@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 8: Gestión del Negocio y Atención al Cliente - Peluquería Canina Profesional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); min-height: 100vh; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: #a8edea; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { text-decoration: none; color: #333; font-weight: 500; transition: color 0.3s ease; }
+        .nav-links a:hover { color: #a8edea; }
+        .hero { margin-top: 80px; padding: 4rem 0; text-align: center; color: white; }
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; animation: fadeInUp 1s ease; }
+        .hero p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; }
+        .hero-image { width: 100%; max-width: 800px; height: 400px; object-fit: cover; border-radius: 20px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); animation: fadeIn 1.5s ease; }
+        main { background: white; margin: 2rem 0; border-radius: 20px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); overflow: hidden; }
+        .section { padding: 3rem 2rem; border-bottom: 1px solid #eee; }
+        .section:last-child { border-bottom: none; }
+        .section h2 { font-size: 2.5rem; color: #a8edea; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+        .section h3 { font-size: 1.8rem; color: #fed6e3; margin: 2rem 0 1rem 0; border-left: 4px solid #a8edea; padding-left: 1rem; }
+        .section p { margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.8; }
+        .section ul { margin: 1.5rem 0; padding-left: 2rem; }
+        .section li { margin-bottom: 0.8rem; font-size: 1.1rem; }
+        .image-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0; }
+        .gallery-item { background: #f8f9fa; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease; }
+        .gallery-item:hover { transform: translateY(-5px); }
+        .gallery-item img { width: 100%; height: 250px; object-fit: cover; }
+        .gallery-item h4 { padding: 1rem; font-size: 1.2rem; color: #333; text-align: center; }
+        .video-container { margin: 2rem 0; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
+        .video-container iframe { width: 100%; height: 500px; border: none; }
+        .audio-player { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: white; padding: 2rem; border-radius: 15px; margin: 2rem 0; text-align: center; }
+        .audio-player h4 { margin-bottom: 1rem; font-size: 1.5rem; }
+        .accordion { margin: 2rem 0; }
+        .accordion-item { background: #f8f9fa; margin-bottom: 1rem; border-radius: 10px; overflow: hidden; }
+        .accordion-header { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: white; padding: 1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; }
+        .accordion-header:hover { background: linear-gradient(135deg, #fed6e3 0%, #a8edea 100%); }
+        .accordion-content { padding: 1.5rem; display: none; }
+        .accordion-content.active { display: block; animation: fadeIn 0.5s ease; }
+        .business-table { width: 100%; border-collapse: collapse; margin: 2rem 0; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
+        .business-table th { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: white; padding: 1rem; text-align: left; font-weight: 600; }
+        .business-table td { padding: 1rem; border-bottom: 1px solid #eee; }
+        .business-table tr:hover { background: #f8f9fa; }
+        .highlight-box { background: linear-gradient(135deg, #a8edea20 0%, #fed6e320 100%); border-left: 4px solid #a8edea; padding: 1.5rem; margin: 2rem 0; border-radius: 10px; }
+        .highlight-box h4 { color: #a8edea; margin-bottom: 1rem; font-size: 1.3rem; }
+        footer { background: #333; color: white; text-align: center; padding: 2rem 0; margin-top: 2rem; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @media (max-width: 768px) { .hero h1 { font-size: 2rem; } .nav-links { display: none; } .section { padding: 2rem 1rem; } .video-container iframe { height: 300px; } }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo"><i class="fas fa-paw"></i> Peluquería Canina Pro</div>
+            <ul class="nav-links">
+                <li><a href="#cliente">Atención Cliente</a></li>
+                <li><a href="#gestion">Gestión</a></li>
+                <li><a href="#marketing">Marketing</a></li>
+                <li><a href="#crecimiento">Crecimiento</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Módulo 8: Gestión del Negocio y Atención al Cliente</h1>
+            <p>Desarrolla habilidades empresariales para un negocio de grooming exitoso</p>
+            <img src="modulo8_consulta_inicial.jpg" alt="Consulta inicial" class="hero-image">
+        </div>
+    </section>
+
+    <main class="container">
+        <section id="cliente" class="section">
+            <h2><i class="fas fa-handshake"></i> Atención al Cliente Profesional</h2>
+            
+            <h3>Consulta Inicial</h3>
+            <p>La consulta inicial es el momento más importante para establecer una relación positiva con el cliente y comprender completamente sus necesidades y expectativas. Una consulta bien estructurada recopila información esencial sobre el perro, su historial de grooming, preferencias del cliente, y establece expectativas realistas sobre los resultados.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo8_consulta_inicial.jpg" alt="Consulta inicial"><h4>Infografía de consulta inicial con 10 preguntas clave</h4></div>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Preguntas Clave en la Consulta Inicial</h4>
+                <ul>
+                    <li><strong>Historia del perro:</strong> Edad, raza, historial médico relevante</li>
+                    <li><strong>Experiencia previa:</strong> Cómo reacciona el perro al grooming, experiencias pasadas</li>
+                    <li><strong>Expectativas del cliente:</strong> Qué resultado esperan, estilo preferido</li>
+                    <li><strong>Frecuencia deseada:</strong> Con qué frecuencia planean visitar</li>
+                    <li><strong>Presupuesto:</strong> Rango de inversión que manejan</li>
+                    <li><strong>Disponibilidad:</strong> Horarios preferidos, urgencias</li>
+                    <li><strong>Preferencias especiales:</strong> Productos, técnicas, restricciones</li>
+                    <li><strong>Contacto de emergencia:</strong> Quién autoriza tratamientos si es necesario</li>
+                    <li><strong>Expectativas de servicio:</strong> Qué valoran más (rapidez, calidad, precio)</li>
+                    <li><strong>Información adicional:</strong> Cualquier dato relevante para el grooming</li>
+                </ul>
+            </div>
+
+            <h3>Comunicación Efectiva</h3>
+            <p>La comunicación efectiva con los clientes es fundamental para el éxito del negocio. Esto incluye escuchar activamente las preocupaciones del cliente, explicar claramente los procedimientos y resultados esperados, proporcionar recomendaciones basadas en conocimiento profesional, y mantener al cliente informado durante el proceso cuando sea apropiado.</p>
+
+            <h3>Manejo de Quejas</h3>
+            <p>Las quejas son inevitables en cualquier negocio de servicios. La clave está en manejarlas profesionalmente y convertirlas en oportunidades de mejora. Escucha sin interrumpir, valida las preocupaciones del cliente, ofrece soluciones concretas, y sigue para asegurar satisfacción. Una queja bien manejada puede convertir a un cliente insatisfecho en un cliente leal.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo8_quejas.jpg" alt="Manejo de quejas"><h4>Diagrama de flujo para manejo de quejas</h4></div>
+            </div>
+        </section>
+
+        <section id="gestion" class="section">
+            <h2><i class="fas fa-chart-line"></i> Gestión Empresarial</h2>
+            
+            <h3>Estructura de Costos</h3>
+            <p>Comprender la estructura de costos es esencial para la rentabilidad del negocio. Los costos se dividen en fijos (no varían con el volumen de trabajo) y variables (aumentan con cada servicio). Una comprensión clara de estos costos permite fijar precios apropiados y tomar decisiones informadas sobre el negocio.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo8_estructura_costos.jpg" alt="Estructura de costos"><h4>Diagrama de estructura de costos para peluquería canina</h4></div>
+            </div>
+
+            <table class="business-table">
+                <thead>
+                    <tr>
+                        <th>Categoría</th>
+                        <th>Costos Fijos</th>
+                        <th>Costos Variables</th>
+                        <th>% del Total Aprox.</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Local</strong></td><td>Alquiler, servicios básicos</td><td>Consumo extra por servicio</td><td>20-30%</td></tr>
+                    <tr><td><strong>Personal</strong></td><td>Sueldos fijos</td><td>Horas extra, comisiones</td><td>30-40%</td></tr>
+                    <tr><td><strong>Productos</strong></td><td>Inventario inicial</td><td>Champús, productos por servicio</td><td>10-15%</td></tr>
+                    <tr><td><strong>Equipamiento</strong></td><td>Compra, mantenimiento</td><td>Repuestos, consumibles</td><td>10-15%</td></tr>
+                    <tr><td><strong>Marketing</strong></td><td>Página web básica</td><td>Publicidad, promociones</td><td>5-10%</td></tr>
+                    <tr><td><strong>Administración</strong></td><td>Software, contador</td><td>Transacciones, comisiones</td><td>5-10%</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Fijación de Precios</h3>
+            <p>La fijación de precios debe considerar múltiples factores: costos directos del servicio, costos indirectos del negocio, tiempo requerido, nivel de especialización, competencia local, y valor percibido por el cliente. Una estrategia común es calcular el costo total y agregar un margen de beneficio del 20-40%, ajustando según el mercado local.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo8_tabla_precios.jpg" alt="Tabla de precios"><h4>Tabla de precios profesional para diferentes servicios</h4></div>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Estrategias de Precios</h4>
+                <ul>
+                    <li><strong>Precios por tamaño:</strong> Pequeño, mediano, grande, gigante</li>
+                    <li><strong>Precios por tipo de pelo:</strong> Corto, largo, rizado, difícil</li>
+                    <li><strong>Servicios adicionales:</strong> Desenredado, cepillado de dientes, spa</li>
+                    <li><strong>Paquetes:</strong> Baño + corte, mantenimiento mensual</li>
+                    <li><strong>Membresías:</strong> Descuentos por frecuencia de visitas</li>
+                    <li><strong>Precios dinámicos:</strong> Horarios valle vs hora pico</li>
+                </ul>
+            </div>
+
+            <h3>Gestión de Agenda</h3>
+            <p>Una gestión eficiente de la agenda maximiza la productividad y mejora la experiencia del cliente. Utiliza software de programación que permita reservas online, recordatorios automáticos, y gestión de cancelaciones. Bloquea tiempo para servicios que requieren más duración y mantén espacio para emergencias o ajustes de último minuto.</p>
+        </section>
+
+        <section id="marketing" class="section">
+            <h2><i class="fas fa-bullhorn"></i> Marketing para Peluquería Canina</h2>
+            
+            <h3>Redes Sociales</h3>
+            <p>Las redes sociales son herramientas poderosas para peluquerías caninas. Instagram es ideal para mostrar transformaciones antes/después, Facebook permite conectar con la comunidad local, y TikTok puede viralizar técnicas y momentos divertidos. Publica contenido variado: fotos de trabajos, tips de cuidado, detrás de cámaras, y contenido educativo.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo8_marketing_digital.jpg" alt="Marketing digital"><h4>Plan de marketing en redes sociales con calendario</h4></div>
+            </div>
+
+            <h3>Fotografía Profesional</h3>
+            <p>La fotografía de alta calidad es esencial para mostrar tu trabajo. Aprende técnicas básicas de iluminación, composición y edición. Las fotos antes/después son particularmente efectivas cuando muestran transformaciones dramáticas. Invierte en un fondo neutro profesional y buena iluminación para resultados consistentes.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo8_antes_despues.jpg" alt="Antes/después"><h4>Ejemplos de fotografía profesional antes/después</h4></div>
+            </div>
+
+            <h3>Programas de Fidelización</h3>
+            <p>Los programas de fidelización aumentan la retención de clientes y el valor del cliente a lo largo del tiempo. Opciones populares incluyen: tarjetas de punch (cada 10 servicios, uno gratis), programa de puntos (acumular puntos por gasto), descuentos por referidos, y membresías VIP con beneficios exclusivos.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo8_fidelizacion.jpg" alt="Fidelización"><h4>Diseño de tarjeta de fidelización y programa de puntos</h4></div>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Estrategias de Marketing Efectivas</h4>
+                <ul>
+                    <li><strong>Contenido visual:</strong> Antes/después, time-lapse de grooming</li>
+                    <li><strong>Educación:</strong> Tips de cuidado, información útil</li>
+                    <li><strong>Testimonios:</strong> Reseñas de clientes satisfechos</li>
+                    <li><strong>Colaboraciones:</strong> Asociaciones con veterinarios, tiendas de mascotas</li>
+                    <li><strong>Eventos:</strong> Días de spa, sesiones de fotos, charlas educativas</li>
+                    <li><strong>SEO local:</strong> Optimizar para búsquedas locales</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="crecimiento" class="section">
+            <h2><i class="fas fa-rocket"></i> Crecimiento Profesional</h2>
+            
+            <h3>Formación Continua</h3>
+            <p>El grooming es una profesión en constante evolución. La formación continua mantiene tus habilidades actualizadas y te permite ofrecer nuevos servicios. Participa en seminarios, talleres, competencias y certificaciones. Aprende nuevas técnicas, productos y tendencias del mercado.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo8_crecimiento_profesional.jpg" alt="Crecimiento profesional"><h4>Infografía de rutas de crecimiento profesional</h4></div>
+            </div>
+
+            <h3>Certificaciones</h3>
+            <p>Las certificaciones profesionales demuestran tu compromiso con la excelencia y pueden diferenciarte de la competencia. Certificaciones reconocidas incluyen: Certified Pet Groomer (CPG), International Certified Master Groomer (ICMG), y certificaciones específicas de razas o técnicas especializadas.</p>
+
+            <h3>Especializaciones</h3>
+            <p>Las especializaciones pueden aumentar significativamente tu valor y tarifas. Áreas de especialización populares incluyen: show grooming para razas específicas, grooming terapéutico para perros con condiciones médicas, grooming para razas gigantes, estilismo creativo y coloración, y grooming de gatos (una especialización por completo separada).</p>
+
+            <div class="highlight-box">
+                <h4>Vías de Crecimiento Profesional</h4>
+                <ul>
+                    <li><strong>Groomer Junior:</strong> Aprendiz, asistente (0-1 año)</li>
+                    <li><strong>Groomer Profesional:</strong> Independiente, certificado (1-3 años)</li>
+                    <li><strong>Groomer Senior:</strong> Experiencia, especialización (3-5 años)</li>
+                    <li><strong>Master Groomer:</strong> Experta, competencias, instructor (5+ años)</li>
+                    <li><strong>Dueño de Negocio:</strong> Emprendimiento propio</li>
+                    <li><strong>Instructor:</strong> Enseñanza de nuevos groomers</li>
+                    <li><strong>Juez de Exposiciones:</strong> Evaluación en competencias</li>
+                    <li><strong>Consultor:</strong> Asesoría a otros negocios</li>
+                </ul>
+            </div>
+
+            <h3>Expansión del Negocio</h3>
+            <p>La expansión del negocio puede tomar diversas formas: agregar servicios complementarios (spa, tienda de productos), contratar personal adicional, ampliar las instalaciones, abrir ubicaciones adicionales, o franquiciar el modelo de negocio. Cada opción requiere planificación cuidadosa y consideración de los recursos disponibles.</p>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-video"></i> Videos Educativos</h2>
+            <div class="video-container"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Atención al Cliente Profesional"></iframe></div>
+            <div class="video-container"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Marketing Digital para Groomers"></iframe></div>
+            <div class="video-container"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Gestión de Negocio de Grooming"></iframe></div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-volume-up"></i> Narraciones del Módulo</h2>
+            <div class="audio-player">
+                <h4><i class="fas fa-play-circle"></i> Audio 1: Atención al Cliente y Gestión</h4>
+                <audio controls style="width: 100%; margin-top: 1rem;"><source src="audio_modulo8.mp3" type="audio/mpeg">Tu navegador no soporta el reproductor de audio.</audio>
+                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">Estrategias de atención al cliente y gestión empresarial básica.</p>
+            </div>
+            <div class="audio-player">
+                <h4><i class="fas fa-play-circle"></i> Audio 2: Marketing y Crecimiento Profesional</h4>
+                <audio controls style="width: 100%; margin-top: 1rem;"><source src="audio_modulo8_2.mp3" type="audio/mpeg">Tu navegador no soporta el reproductor de audio.</audio>
+                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">Técnicas de marketing y rutas de crecimiento profesional.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-lightbulb"></i> Contenido Adicional</h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)"><span>Plan de Negocio Básico</span><i class="fas fa-chevron-down"></i></div>
+                    <div class="accordion-content">
+                        <h4>Elementos Esenciales del Plan de Negocio</h4>
+                        <ul>
+                            <li><strong>Resumen ejecutivo:</strong> Misión, visión, objetivos</li>
+                            <li><strong>Análisis de mercado:</strong> Competencia, clientes potenciales</li>
+                            <li><strong>Servicios ofrecidos:</strong> Qué ofreces y por qué eres diferente</li>
+                            <li><strong>Estrategia de marketing:</strong> Cómo llegarás a tus clientes</li>
+                            <li><strong>Operaciones:</strong> Cómo funcionará el negocio día a día</li>
+                            <li><strong>Proyecciones financieras:</strong> Ingresos, gastos, rentabilidad</li>
+                            <li><strong>Equipo:</strong> Personal necesario y roles</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)"><span>Herramientas de Gestión</span><i class="fas fa-chevron-down"></i></div>
+                    <div class="accordion-content">
+                        <h4>Software y Herramientas Recomendadas</h4>
+                        <ul>
+                            <li><strong>Programación:</strong> Gingr, MoeGo, 123Pet</li>
+                            <li><strong>Contabilidad:</strong> QuickBooks, Wave, FreshBooks</li>
+                            <li><strong>Marketing:</strong> Canva, Mailchimp, Hootsuite</li>
+                            <li><strong>Comunicación:</strong> WhatsApp Business, SMS</li>
+                            <li><strong>Revisión:</strong> Google My Business, Yelp</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Curso de Peluquería Canina Profesional - Módulo 8: Gestión del Negocio y Atención al Cliente</p>
+            <p>Duración: 10 horas | Total de imágenes: 8 | Videos: 3 | Audios: 2</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('i');
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                document.querySelectorAll('.accordion-content').forEach(acc => acc.classList.remove('active'));
+                document.querySelectorAll('.accordion-header i').forEach(ic => ic.style.transform = 'rotate(0deg)');
+                content.classList.add('active');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

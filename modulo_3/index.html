@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 3: Tipos de Pelaje y Clasificación de Razas - Peluquería Canina Profesional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); min-height: 100vh;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header {
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
+            position: fixed; width: 100%; top: 0; z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+        nav {
+            display: flex; justify-content: space-between; align-items: center; padding: 1rem 0;
+        }
+        .logo { font-size: 1.5rem; font-weight: 700; color: #f5576c; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { text-decoration: none; color: #333; font-weight: 500; transition: color 0.3s ease; }
+        .nav-links a:hover { color: #f5576c; }
+        .hero {
+            margin-top: 80px; padding: 4rem 0; text-align: center; color: white;
+        }
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; animation: fadeInUp 1s ease; }
+        .hero p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; }
+        .hero-image {
+            width: 100%; max-width: 800px; height: 400px; object-fit: cover;
+            border-radius: 20px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); animation: fadeIn 1.5s ease;
+        }
+        main {
+            background: white; margin: 2rem 0; border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); overflow: hidden;
+        }
+        .section { padding: 3rem 2rem; border-bottom: 1px solid #eee; }
+        .section:last-child { border-bottom: none; }
+        .section h2 { font-size: 2.5rem; color: #f5576c; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+        .section h3 { font-size: 1.8rem; color: #f093fb; margin: 2rem 0 1rem 0; border-left: 4px solid #f5576c; padding-left: 1rem; }
+        .section p { margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.8; }
+        .section ul { margin: 1.5rem 0; padding-left: 2rem; }
+        .section li { margin-bottom: 0.8rem; font-size: 1.1rem; }
+        .image-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0; }
+        .gallery-item { background: #f8f9fa; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease; }
+        .gallery-item:hover { transform: translateY(-5px); }
+        .gallery-item img { width: 100%; height: 250px; object-fit: cover; }
+        .gallery-item h4 { padding: 1rem; font-size: 1.2rem; color: #333; text-align: center; }
+        .video-container { margin: 2rem 0; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
+        .video-container iframe { width: 100%; height: 500px; border: none; }
+        .audio-player { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 2rem; border-radius: 15px; margin: 2rem 0; text-align: center; }
+        .audio-player h4 { margin-bottom: 1rem; font-size: 1.5rem; }
+        .accordion { margin: 2rem 0; }
+        .accordion-item { background: #f8f9fa; margin-bottom: 1rem; border-radius: 10px; overflow: hidden; }
+        .accordion-header { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; }
+        .accordion-header:hover { background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%); }
+        .accordion-content { padding: 1.5rem; display: none; }
+        .accordion-content.active { display: block; animation: fadeIn 0.5s ease; }
+        .breed-table { width: 100%; border-collapse: collapse; margin: 2rem 0; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
+        .breed-table th { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 1rem; text-align: left; font-weight: 600; }
+        .breed-table td { padding: 1rem; border-bottom: 1px solid #eee; }
+        .breed-table tr:hover { background: #f8f9fa; }
+        .highlight-box { background: linear-gradient(135deg, #f093fb20 0%, #f5576c20 100%); border-left: 4px solid #f5576c; padding: 1.5rem; margin: 2rem 0; border-radius: 10px; }
+        .highlight-box h4 { color: #f5576c; margin-bottom: 1rem; font-size: 1.3rem; }
+        footer { background: #333; color: white; text-align: center; padding: 2rem 0; margin-top: 2rem; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @media (max-width: 768px) { .hero h1 { font-size: 2rem; } .nav-links { display: none; } .section { padding: 2rem 1rem; } .video-container iframe { height: 300px; } }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo"><i class="fas fa-paw"></i> Peluquería Canina Pro</div>
+            <ul class="nav-links">
+                <li><a href="#clasificacion">Clasificación</a></li>
+                <li><a href="#razas">Razas</a></li>
+                <li><a href="#mantenimiento">Mantenimiento</a></li>
+                <li><a href="#frecuencia">Frecuencia</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Módulo 3: Tipos de Pelaje y Clasificación de Razas</h1>
+            <p>Domina la clasificación de pelajes y las necesidades específicas de cada raza</p>
+            <img src="modulo3_tipos_pelaje.jpg" alt="Tipos de pelaje" class="hero-image">
+        </div>
+    </section>
+
+    <main class="container">
+        <section id="clasificacion" class="section">
+            <h2><i class="fas fa-layer-group"></i> Clasificación de Pelajes</h2>
+            
+            <h3>Pelo Corto</h3>
+            <p>El pelo corto es característico de razas como el Beagle, Dálmata, Boxer y Labrador. Este tipo de pelaje tiene una longitud generalmente inferior a 2 centímetros y se mantiene pegado al cuerpo. Aunque parece fácil de mantener, el pelo corto requiere cepillado regular para remover el pelo muerto y estimular la producción de aceites naturales que mantienen el brillo. Las razas de pelo corto suelen mudar constantemente durante todo el año, por lo que el cepillado semanal es esencial para controlar la caída de pelo en el hogar.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo3_tipos_pelaje.jpg" alt="Tipos de pelaje"><h4>Comparativa visual de 8 tipos de pelaje canino</h4></div>
+            </div>
+
+            <h3>Pelo Largo</h3>
+            <p>El pelo largo es característico de razas como el Yorkshire Terrier, Shih Tzu, Collie y Lhasa Apso. Este pelaje puede alcanzar longitudes superiores a 15 centímetros y requiere un mantenimiento intensivo diario. Las razas de pelo largo necesitan cepillado diario para evitar enredos y formación de nudos. El baño debe realizarse cada 2-3 semanas con productos hidratantes específicos. Los cortes de mantenimiento son necesarios cada 4-6 semanas para mantener la forma y evitar que el pelo toque el suelo.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo3_pelo_largo.jpg" alt="Pelo largo"><h4>Galería de razas de pelo largo</h4></div>
+            </div>
+
+            <h3>Pelo Rizado</h3>
+            <p>El pelo rizado es característico de razas como el Caniche, Bichón Frisé, Cocker Spaniel Americano y Kerry Blue Terrier. Este tipo de pelaje tiene una estructura única que forma rizos apretados o ondas suaves. Aunque no cae tanto pelo, el pelo rizado requiere cepillado frecuente para evitar que los rizos se compacten y formen matas. El corte profesional es esencial cada 4-8 semanas para mantener la forma característica de cada raza.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo3_pelo_rizado.jpg" alt="Pelo rizado"><h4>Galería de razas de pelo rizado</h4></div>
+            </div>
+
+            <h3>Pelo Duro</h3>
+            <p>El pelo duro es característico de razas como el Schnauzer, Terrier, Dachshund de pelo duro y Scottish Terrier. Este pelaje tiene una textura áspera y requiere técnicas especiales de grooming. El hand-stripping o depilación manual es la técnica tradicional para mantener la textura y color del pelo duro. Este proceso implica arrancar el pelo muerto de forma manual, lo que estimula el crecimiento de nuevo pelo con la textura adecuada.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo3_pelo_duro_blando.jpg" alt="Pelo duro vs blando"><h4>Comparación microscópica del pelo duro y blando</h4></div>
+            </div>
+
+            <h3>Doble Capa</h3>
+            <p>La doble capa es característica de razas como el Husky, Pastor Alemán, Golden Retriever y Labrador. Este tipo de pelaje consta de una capa externa protectora (guard hairs) y una capa interna de abrigo (undercoat). La muda estacional es intensa en estas razas, perdiendo grandes cantidades de pelo en primavera y otoño. El cepillado durante la muda debe ser diario con herramientas específicas como el deslanador y la carda.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo3_muda_estacional.jpg" alt="Muda estacional"><h4>Infografía de muda estacional</h4></div>
+            </div>
+
+            <table class="breed-table">
+                <thead>
+                    <tr>
+                        <th>Tipo de Pelo</th>
+                        <th>Ejemplos de Razas</th>
+                        <th>Frecuencia de Cepillado</th>
+                        <th>Frecuencia de Baño</th>
+                        <th>Frecuencia de Corte</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Pelo Corto</strong></td><td>Beagle, Dálmata, Labrador</td><td>2-3 veces/semana</td><td>Cada 4-6 semanas</td><td>No requiere</td></tr>
+                    <tr><td><strong>Pelo Largo</strong></td><td>Yorkshire, Shih Tzu, Collie</td><td>Diario</td><td>Cada 2-3 semanas</td><td>Cada 4-6 semanas</td></tr>
+                    <tr><td><strong>Pelo Rizado</strong></td><td>Caniche, Bichón, Cocker</td><td>Cada 2-3 días</td><td>Cada 2-4 semanas</td><td>Cada 4-8 semanas</td></tr>
+                    <tr><td><strong>Pelo Duro</strong></td><td>Schnauzer, Terrier</td><td>2-3 veces/semana</td><td>Cada 4-6 semanas</td><td>Hand-stripping cada 6-8 semanas</td></tr>
+                    <tr><td><strong>Doble Capa</strong></td><td>Husky, Pastor Alemán</td><td>Diario durante muda</td><td>Cada 6-8 semanas</td><td>No requiere corte</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="razas" class="section">
+            <h2><i class="fas fa-dog"></i> Sistema FCI de Clasificación</h2>
+            
+            <h3>Los 10 Grupos de Razas</h3>
+            <p>La Federación Cinológica Internacional (FCI) clasifica a las razas caninas en 10 grupos basados en su función original y características morfológicas. Esta clasificación es fundamental para el groomer profesional ya que cada grupo tiene necesidades específicas de cuidado y estándares de presentación.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo3_clasificacion_fci.jpg" alt="Clasificación FCI"><h4>Infografía de la clasificación FCI con 10 grupos</h4></div>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Los 10 Grupos FCI y sus Características de Grooming</h4>
+                <ul>
+                    <li><strong>Grupo 1 - Pastoras y Boyeras:</strong> Pelo de longitud media a larga, doble capa, requieren cepillado frecuente</li>
+                    <li><strong>Grupo 2 - Pinscher y Schnauzer:</strong> Pelo duro que requiere hand-stripping, cuidado de barbas</li>
+                    <li><strong>Grupo 3 - Terrier:</strong> Pelo duro, hand-stripping esencial, formas características</li>
+                    <li><strong>Grupo 4 - Dachshund:</strong> Tres variedades de pelo, cada una requiere cuidados específicos</li>
+                    <li><strong>Grupo 5 - Spitz:</strong> Doble capa densa, muda estacional intensa</li>
+                    <li><strong>Grupo 6 - Sabuesos:</strong> Pelo corto a medio, cuidado de orejas largas</li>
+                    <li><strong>Grupo 7 - Perros de Caza:</strong> Pelo corto, cuidado de orejas caídas</li>
+                    <li><strong>Grupo 8 - Perros de Recoba:</strong> Pelo corto, cuidado de colas</li>
+                    <li><strong>Grupo 9 - Perros de Compañía:</strong> Variedad de tipos de pelo, cuidados específicos por raza</li>
+                    <li><strong>Grupo 10 - Lebreles:</strong> Pelo corto, cuidado de uñas y orejas</li>
+                </ul>
+            </div>
+
+            <h3>Razas Más Comunes en Peluquería</h3>
+            <p>En la práctica diaria de la peluquería canina, ciertas razas son más frecuentes que otras. Conocer las necesidades específicas de estas razas populares te permitirá ofrecer un servicio más eficiente y especializado.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo3_distribucion_razas.jpg" alt="Distribución de razas"><h4>Mapa mundial de origen de razas caninas</h4></div>
+            </div>
+
+            <h3>Razas de Compañía</h3>
+            <p>Las razas de compañía más comunes incluyen el Yorkshire Terrier, Maltes, Shih Tzu, Bichón Frisé y Caniche Toy. Estas razas requieren grooming frecuente cada 4-6 semanas, con cepillado diario en casa. Los cortes de exposición o cortes de compañía son populares, y el mantenimiento del pelo facial es crucial para evitar problemas oculares.</p>
+
+            <h3>Razas de Trabajo</h3>
+            <p>Las razas de trabajo como el Pastor Alemán, Labrador, Golden Retriever y Boxer tienen necesidades de grooming más básicas pero igual de importantes. Aunque no requieren cortes de estilo, necesitan cepillado regular, especialmente durante la muda estacional, y baños periódicos. La limpieza de orejas es especialmente importante en razas con orejas caídas.</p>
+
+            <h3>Razas de Exposición</h3>
+            <p>Las razas de exposición requieren grooming especializado que siga los estándares de la raza. Esto incluye razas como el Poodle con sus cortes de exposición Continental y English Saddle, el Schnauzer con su característico modelado de barba y cejas, y el Yorkshire Terrier con su pelo largo sedoso que requiere envolturas para protegerlo.</p>
+
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo3_evolucion_pelaje.jpg" alt="Evolución del pelaje"><h4>Evolución del pelaje desde cachorro hasta adulto</h4></div>
+            </div>
+        </section>
+
+        <section id="mantenimiento" class="section">
+            <h2><i class="fas fa-calendar-alt"></i> Frecuencia de Mantenimiento</h2>
+            
+            <h3>Calendario de Grooming por Tipo de Pelo</h3>
+            <p>Establecer un calendario adecuado de grooming es esencial para mantener la salud y apariencia del perro. La frecuencia depende del tipo de pelo, estilo de vida del perro y preferencias del dueño.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo3_frecuencia_grooming.jpg" alt="Frecuencia de grooming"><h4>Diagrama de frecuencia para 12 razas populares</h4></div>
+            </div>
+
+            <table class="breed-table">
+                <thead>
+                    <tr>
+                        <th>Tipo de Servicio</th>
+                        <th>Pelo Corto</th>
+                        <th>Pelo Largo</th>
+                        <th>Pelo Rizado</th>
+                        <th>Doble Capa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Cepillado</strong></td><td>2-3 veces/semana</td><td>Diario</td><td>Cada 2-3 días</td><td>Diario en muda</td></tr>
+                    <tr><td><strong>Baño completo</strong></td><td>Cada 4-6 semanas</td><td>Cada 2-3 semanas</td><td>Cada 2-4 semanas</td><td>Cada 6-8 semanas</td></tr>
+                    <tr><td><strong>Corte completo</strong></td><td>No requiere</td><td>Cada 4-6 semanas</td><td>Cada 4-8 semanas</td><td>No requiere</td></tr>
+                    <tr><td><strong>Limpieza de oídos</strong></td><td>Semanal</td><td>Semanal</td><td>Semanal</td><td>Semanal</td></tr>
+                    <tr><td><strong>Corte de uñas</strong></td><td>Cada 2-4 semanas</td><td>Cada 2-4 semanas</td><td>Cada 2-4 semanas</td><td>Cada 2-4 semanas</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Mantenimiento en Casa</h3>
+            <p>El mantenimiento entre visitas profesionales es crucial para la salud del perro. Los dueños deben ser educados sobre la importancia del cepillado regular, la limpieza de ojos y oídos, y el cuidado básico del pelaje. Proporcionar instrucciones claras y recomendaciones de productos específicos para cada tipo de pelo ayudará a mantener los resultados del grooming profesional.</p>
+
+            <h3>Cuidados Estacionales</h3>
+            <p>Los cuidados del pelaje varían según la estación del año. Durante el verano, es importante proteger al perro del sobrecalentamiento y considerar cortes más cortos. En invierno, algunos perros necesitan más tiempo para secar completamente y protección del frío. La muda estacional en primavera y otoño requiere atención especial con cepillado intensivo.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo3_herramientas_tipo.jpg" alt="Herramientas por tipo"><h4>Herramientas específicas para cada tipo de pelaje</h4></div>
+            </div>
+        </section>
+
+        <section id="frecuencia" class="section">
+            <h2><i class="fas fa-tools"></i> Herramientas Específicas por Tipo de Pelo</h2>
+            
+            <p>Cada tipo de pelo requiere herramientas específicas para un grooming efectivo y seguro. El uso de herramientas incorrectas puede dañar el pelaje, causar dolor al perro o resultar en un acabado poco profesional.</p>
+
+            <div class="highlight-box">
+                <h4>Guía de Herramientas por Tipo de Pelo</h4>
+                <ul>
+                    <li><strong>Pelo Corto:</strong> Guante de goma, carda suave, cepillo de cerdas naturales</li>
+                    <li><strong>Pelo Largo:</strong> Pin brush, slicker brush, carda, desenredante, peine de púas anchas</li>
+                    <li><strong>Pelo Rizado:</strong> Slicker brush, peine de púas anchas, desenredante spray</li>
+                    <li><strong>Pelo Duro:</strong> Carda, stripping knife, piedra pómez</li>
+                    <li><strong>Doble Capa:</strong> Deslanador, carda, rake, secador de alta velocidad</li>
+                </ul>
+            </div>
+
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo3_mapa_origen.jpg" alt="Origen de razas"><h4>Distribución geográfica de razas caninas</h4></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-video"></i> Videos Educativos</h2>
+            <div class="video-container"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Tipos de Pelaje Canino"></iframe></div>
+            <div class="video-container"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Clasificación de Razas FCI"></iframe></div>
+            <div class="video-container"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Mantenimiento por Tipo de Pelo"></iframe></div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-volume-up"></i> Narraciones del Módulo</h2>
+            <div class="audio-player">
+                <h4><i class="fas fa-play-circle"></i> Audio 1: Clasificación de Pelajes</h4>
+                <audio controls style="width: 100%; margin-top: 1rem;"><source src="audio_modulo3.mp3" type="audio/mpeg">Tu navegador no soporta el reproductor de audio.</audio>
+                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">Guía completa sobre los diferentes tipos de pelaje, sus características y necesidades de cuidado.</p>
+            </div>
+            <div class="audio-player">
+                <h4><i class="fas fa-play-circle"></i> Audio 2: Sistema FCI y Frecuencias</h4>
+                <audio controls style="width: 100%; margin-top: 1rem;"><source src="audio_modulo3_2.mp3" type="audio/mpeg">Tu navegador no soporta el reproductor de audio.</audio>
+                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">Explicación detallada de la clasificación FCI y calendarios de mantenimiento por raza.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-lightbulb"></i> Contenido Adicional</h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)"><span>Glosario de Pelajes</span><i class="fas fa-chevron-down"></i></div>
+                    <div class="accordion-content">
+                        <h4>Términos Esenciales sobre Pelajes</h4>
+                        <ul>
+                            <li><strong>Guard hairs:</strong> Pelos protectores externos</li>
+                            <li><strong>Undercoat:</strong> Pelo de abrigo interno</li>
+                            <li><strong>Hand-stripping:</strong> Depilación manual del pelo muerto</li>
+                            <li><strong>Matting:</strong> Formación de nudos compactos</li>
+                            <li><strong>Blowing coat:</strong> Período intenso de muda</li>
+                            <li><strong>Shedding:</strong> Caída normal de pelo</li>
+                            <li><strong>Silky coat:</strong> Pelo sedoso y fino</li>
+                            <li><strong>Wiry coat:</strong> Pelo duro y áspero</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)"><span>Razas Hipoalergénicas</span><i class="fas fa-chevron-down"></i></div>
+                    <div class="accordion-content">
+                        <h4>Razas Recomendadas para Personas Alergicas</h4>
+                        <p>Aunque ningún perro es 100% hipoalergénico, algunas razas producen menos alérgenos:</p>
+                        <ul>
+                            <li><strong>Caniche:</strong> Todos los tamaños, pelo que no cae</li>
+                            <li><strong>Bichón Frisé:</strong> Pelo suave y rizado</li>
+                            <li><strong>Maltes:</strong> Pelo largo sedoso</li>
+                            <li><strong>Shih Tzu:</strong> Pelo largo que requiere mantenimiento</li>
+                            <li><strong>Portuguese Water Dog:</strong> Pelo ondulado o rizado</li>
+                            <li><strong>Yorkshire Terrier:</strong> Pelo fino sedoso</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Curso de Peluquería Canina Profesional - Módulo 3: Tipos de Pelaje y Clasificación de Razas</p>
+            <p>Duración: 20 horas | Total de imágenes: 10 | Videos: 3 | Audios: 2</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('i');
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                document.querySelectorAll('.accordion-content').forEach(acc => acc.classList.remove('active'));
+                document.querySelectorAll('.accordion-header i').forEach(ic => ic.style.transform = 'rotate(0deg)');
+                content.classList.add('active');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

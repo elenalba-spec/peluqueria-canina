@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 7: Comportamiento Canino y Seguridad - Peluquería Canina Profesional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%); min-height: 100vh; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: #ff9a9e; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { text-decoration: none; color: #333; font-weight: 500; transition: color 0.3s ease; }
+        .nav-links a:hover { color: #ff9a9e; }
+        .hero { margin-top: 80px; padding: 4rem 0; text-align: center; color: white; }
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; animation: fadeInUp 1s ease; }
+        .hero p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; }
+        .hero-image { width: 100%; max-width: 800px; height: 400px; object-fit: cover; border-radius: 20px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); animation: fadeIn 1.5s ease; }
+        main { background: white; margin: 2rem 0; border-radius: 20px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); overflow: hidden; }
+        .section { padding: 3rem 2rem; border-bottom: 1px solid #eee; }
+        .section:last-child { border-bottom: none; }
+        .section h2 { font-size: 2.5rem; color: #ff9a9e; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+        .section h3 { font-size: 1.8rem; color: #fecfef; margin: 2rem 0 1rem 0; border-left: 4px solid #ff9a9e; padding-left: 1rem; }
+        .section p { margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.8; }
+        .section ul { margin: 1.5rem 0; padding-left: 2rem; }
+        .section li { margin-bottom: 0.8rem; font-size: 1.1rem; }
+        .image-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0; }
+        .gallery-item { background: #f8f9fa; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease; }
+        .gallery-item:hover { transform: translateY(-5px); }
+        .gallery-item img { width: 100%; height: 250px; object-fit: cover; }
+        .gallery-item h4 { padding: 1rem; font-size: 1.2rem; color: #333; text-align: center; }
+        .video-container { margin: 2rem 0; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
+        .video-container iframe { width: 100%; height: 500px; border: none; }
+        .audio-player { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); color: white; padding: 2rem; border-radius: 15px; margin: 2rem 0; text-align: center; }
+        .audio-player h4 { margin-bottom: 1rem; font-size: 1.5rem; }
+        .accordion { margin: 2rem 0; }
+        .accordion-item { background: #f8f9fa; margin-bottom: 1rem; border-radius: 10px; overflow: hidden; }
+        .accordion-header { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); color: white; padding: 1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; }
+        .accordion-header:hover { background: linear-gradient(135deg, #fecfef 0%, #ff9a9e 100%); }
+        .accordion-content { padding: 1.5rem; display: none; }
+        .accordion-content.active { display: block; animation: fadeIn 0.5s ease; }
+        .safety-table { width: 100%; border-collapse: collapse; margin: 2rem 0; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
+        .safety-table th { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); color: white; padding: 1rem; text-align: left; font-weight: 600; }
+        .safety-table td { padding: 1rem; border-bottom: 1px solid #eee; }
+        .safety-table tr:hover { background: #f8f9fa; }
+        .highlight-box { background: linear-gradient(135deg, #ff9a9e20 0%, #fecfef20 100%); border-left: 4px solid #ff9a9e; padding: 1.5rem; margin: 2rem 0; border-radius: 10px; }
+        .highlight-box h4 { color: #ff9a9e; margin-bottom: 1rem; font-size: 1.3rem; }
+        .warning-box { background: linear-gradient(135deg, #ff6b6b20 0%, #ffd93d20 100%); border-left: 4px solid #ff6b6b; padding: 1.5rem; margin: 2rem 0; border-radius: 10px; }
+        .warning-box h4 { color: #ff6b6b; margin-bottom: 1rem; font-size: 1.3rem; }
+        footer { background: #333; color: white; text-align: center; padding: 2rem 0; margin-top: 2rem; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @media (max-width: 768px) { .hero h1 { font-size: 2rem; } .nav-links { display: none; } .section { padding: 2rem 1rem; } .video-container iframe { height: 300px; } }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo"><i class="fas fa-paw"></i> Peluquería Canina Pro</div>
+            <ul class="nav-links">
+                <li><a href="#comportamiento">Comportamiento</a></li>
+                <li><a href="#manejo">Manejo</a></li>
+                <li><a href="#seguridad">Seguridad</a></li>
+                <li><a href="#salud">Salud</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Módulo 7: Comportamiento Canino y Seguridad</h1>
+            <p>Aprende a leer el lenguaje canino y garantiza la seguridad en tu sala de grooming</p>
+            <img src="modulo7_lenguaje_corporal.jpg" alt="Lenguaje corporal" class="hero-image">
+        </div>
+    </section>
+
+    <main class="container">
+        <section id="comportamiento" class="section">
+            <h2><i class="fas fa-brain"></i> Lenguaje Corporal Canino</h2>
+            
+            <h3>Señales de Calma</h3>
+            <p>El perro relajado y cómodo muestra señales claras de calma que el groomer profesional debe reconocer y reforzar. Estas señales incluyen: respiración regular y profunda, cola en posición neutral o movimiento suave de balanceo, ojos suaves y parpadeantes, cuerpo relajado sin tensión muscular, y posición de orejas neutrales. Un perro calmado es más receptivo al grooming y la experiencia será positiva para ambos.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo7_lenguaje_corporal.jpg" alt="Lenguaje corporal"><h4>Infografía completa de lenguaje corporal canino</h4></div>
+            </div>
+
+            <h3>Señales de Estrés</h3>
+            <p>El estrés en perros durante el grooming es común y debe ser identificado rápidamente. Las señales de estrés incluyen: bostezos frecuentes (calming signals), lamido de labios y nariz, temblores o sacudidas, evitación del contacto visual, orejas hacia atrás, cola baja o entre las patas, y postura encogida. Reconocer estas señales tempranamente permite al groomer adaptar su técnica o dar descansos antes de que el estrés escalade.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo7_señales_estres.jpg" alt="Señales de estrés"><h4>Señales de estrés en perros durante grooming</h4></div>
+            </div>
+
+            <h3>Señales de Agresión</h3>
+            <p>La agresión canina durante el grooming puede ser prevenida si se reconocen las señales de advertencia tempranas. Estas incluyen: gruñidos bajos, mostrar los dientes, mirada fija y directa, orejas hacia adelante y tensas, pelo erizado (piloerección), postura rígida y tensa, y movimientos rápidos o bruscos. Si se observan estas señales, es crucial detener inmediatamente y evaluar si es seguro continuar.</p>
+
+            <div class="highlight-box">
+                <h4>Escalada de Comunicación Canina</h4>
+                <p>Los perros comunican en una escala que va desde señales sutiles hasta agresión evidente:</p>
+                <ol>
+                    <li><strong>Señales sutiles:</strong> Bostezos, lamido de labios, mirada lateral</li>
+                    <li><strong>Señales moderadas:</strong> Alejarse, sacudirse, olfatear intensamente</li>
+                    <li><strong>Señales claras:</strong> Gruñidos, mostrar dientes, postura rígida</li>
+                    <li><strong>Agresión:</strong> Mordedura de advertencia, mordedura real</li>
+                </ol>
+                <p>El groomer profesional debe intervenir en las primeras etapas para prevenir escalada.</p>
+            </div>
+        </section>
+
+        <section id="manejo" class="section">
+            <h2><i class="fas fa-hand-holding-heart"></i> Manejo Profesional</h2>
+            
+            <h3>Técnicas de Sujeción Segura</h3>
+            <p>La sujeción segura es fundamental tanto para la seguridad del groomer como del perro. Las técnicas apropiadas varían según el tamaño y temperamento del animal. Para perros pequeños, la sujeción en posición lateral con una mano sobre el cuello y otra sobre el cuerpo es efectiva. Para perros grandes, el uso de arneses y correas de seguridad es esencial.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo7_sujecion_segura.jpg" alt="Técnicas de sujeción"><h4>Secuencia de técnicas de sujeción segura</h4></div>
+            </div>
+
+            <h3>Manejo de Perros Difíciles</h3>
+            <p>Los perros difíciles requieren paciencia extra y técnicas especializadas. Nunca fuerces a un perro resistente; en su lugar, utiliza desensibilización progresiva, recompensas positivas, y toma descansos cuando sea necesario. Algunos perjos responden mejor a un enfoque lento y gradual, mientras que otros prefieren que el grooming se complete rápidamente.</p>
+
+            <h3>Desensibilización Progresiva</h3>
+            <p>La desensibilización progresiva es una técnica que expone al perro gradualmente a estímulos temidos en niveles cada vez más intensos. Para perros con miedo al baño, comienza con solo estar cerca de la bañera, luego tocar el agua, luego mojar las patas, y así sucesivamente. Cada etapa debe ser asociada con recompensas positivas.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo7_perro_agresivo.jpg" alt="Manejo de perro agresivo"><h4>Diagrama de manejo de perro agresivo</h4></div>
+            </div>
+
+            <table class="safety-table">
+                <thead>
+                    <tr>
+                        <th>Tamaño del Perro</th>
+                        <th>Técnica de Sujeción</th>
+                        <th>Herramientas Recomendadas</th>
+                        <th>Precauciones Especiales</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Pequeño (< 5kg)</strong></td><td>Sujeción manual suave, toalla</td><td>Arnés pequeño, correa corta</td><td>Frágil, temperatura corporal</td></tr>
+                    <tr><td><strong>Mediano (5-25kg)</strong></td><td>Arnés estándar, mesa de grooming</td><td>Correa ajustable, bozal si necesario</td><td>Fuerza moderada, control de cabeza</td></tr>
+                    <tr><td><strong>Grande (25-45kg)</strong></td><td>Arnés reforzado, ayuda de segundo groomer</td><td>Correas dobles, sistema de sujeción</td><td>Fuerza significativa, seguridad primero</td></tr>
+                    <tr><td><strong>Gigante (> 45kg)</strong></td><td>Sistema de sujeción profesional, equipo especializado</td><td>Arnés pesado, poleas, ayuda adicional</td><td>Requiere equipo especializado, experiencia</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="seguridad" class="section">
+            <h2><i class="fas fa-shield-alt"></i> Seguridad en el Trabajo</h2>
+            
+            <h3>Prevención de Accidentes</h3>
+            <p>La prevención de accidentes es preferible a la reacción ante emergencias. Mantén tu área de trabajo limpia y organizada, con cables eléctricos protegidos y alejados del agua. Verifica regularmente el estado de tus herramientas, mantén toallas secas cerca de áreas eléctricas, y nunca dejes herramientas calientes o afiladas al alcance de los perros.</p>
+
+            <h3>Protocolos de Emergencia</h3>
+            <p>Todo salón de grooming debe tener protocolos de emergencia claramente establecidos. Esto incluye procedimientos para cortes, quemaduras, golpes de calor, convulsiones, y reacciones alérgicas severas. Mantén números de emergencia veterinaria visibles y accesibles, y asegúrate de que todo el personal conozca los procedimientos.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo7_primeros_auxilios.jpg" alt="Primeros auxilios"><h4>Protocolo de primeros auxilios para emergencias</h4></div>
+            </div>
+
+            <div class="warning-box">
+                <h4><i class="fas fa-exclamation-triangle"></i> Emergencias que Requieren Veterinario Inmediato</h4>
+                <ul>
+                    <li>Cortes profundos con sangrado que no se detiene</li>
+                    <li>Quemaduras de segundo o tercer grado</li>
+                    <li>Golpe de calor con temperatura corporal elevada</li>
+                    <li>Convulsiones o pérdida de conciencia</li>
+                    <li>Reacción alérgica severa con dificultad respiratoria</li>
+                    <li>Fracturas o luxaciones evidentes</li>
+                    <li>Síntomas de shock (pálido, frío, débil)</li>
+                </ul>
+            </div>
+
+            <h3>Primeros Auxilios Básicos</h3>
+            <p>Todo groomer profesional debe conocer primeros auxilios básicos para perros. Esto incluye control de sangrado con compresión directa, tratamiento de quemaduras leves con agua fría, manejo de golpes de calor, y técnicas de reanimación cardiopulmonar (RCP) canina. Mantén un botiquín de primeros auxilios completo y revisado regularmente.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo7_epp_completo.jpg" alt="EPP completo"><h4>Equipo de protección personal completo</h4></div>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Contenido del Botiquín de Primeros Auxilios</h4>
+                <ul>
+                    <li><strong>Vendajes y gasas:</strong> Diferentes tamaños para diversas heridas</li>
+                    <li><strong>Cinta adhesiva:</strong> Para fijar vendajes (nunca directa en pelo)</li>
+                    <li><strong>Antiséptico:</strong> Clorhexidina o povidona yodada diluida</li>
+                    <li><strong>Producto hemostático:</strong> Para detener sangrado de uñas</li>
+                    <li><strong>Termómetro digital:</strong> Para monitorear temperatura corporal</li>
+                    <li><strong>Guantes desechables:</strong> Para protección del groomer</li>
+                    <li><strong>Tijeras:</strong> Solo para primeros auxilios, no grooming</li>
+                    <li><strong>Solución salina:</strong> Para lavado de ojos</li>
+                    <li><strong>Manta de emergencia:</strong> Para tratar hipotermia o shock</li>
+                    <li><strong>Números de emergencia:</strong> Veterinarios locales, clínicas 24h</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="salud" class="section">
+            <h2><i class="fas fa-virus"></i> Zoonosis y Prevención</h2>
+            
+            <h3>Enfermedades Transmisibles</h3>
+            <p>Las zoonosis son enfermedades que pueden transmitirse de animales a humanos. En el ambiente de grooming, las más comunes incluyen: sarna sarcóptica (altamente contagiosa), hongos como la dermatofitosis (tiña), parásitos externos como pulgas y garrapatas, bacterias como la salmonela y campylobacter, y enfermedades virales como la rabia (aunque rara con perros vacunados).</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo7_zoonosis.jpg" alt="Zoonosis"><h4>Infografía de zoonosis comunes y medidas preventivas</h4></div>
+            </div>
+
+            <h3>Medidas de Bioseguridad</h3>
+            <p>Las medidas de bioseguridad son fundamentales para proteger tanto al groomer como a los demás perros. Esto incluye: lavado frecuente de manos entre perros, uso de EPP apropiado, desinfección de superficies y herramientas entre clientes, separación de perros enfermos, y vacunación al día del personal. La higiene rigurosa es la mejor defensa contra la propagación de enfermedades.</p>
+
+            <h3>Protocolos de Limpieza</h3>
+            <p>Los protocolos de limpieza deben ser sistemáticos y rigurosos. Esto incluye: limpieza y desinfección de todas las superficies entre perros, lavado de toallas y mantas a alta temperatura, esterilización de herramientas cuando sea apropiado, ventilación adecuada del espacio, y eliminación segura de desechos. Mantén registros de limpieza para demostrar cumplimiento de normativas.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item"><img src="modulo7_evaluacion_comportamiento.jpg" alt="Evaluación comportamiento"><h4>Diagrama de flujo para evaluación de comportamiento previo</h4></div>
+            </div>
+
+            <table class="safety-table">
+                <thead>
+                    <tr>
+                        <th>Zoonosis</th>
+                        <th>Síntomas en Perros</th>
+                        <th>Transmisión</th>
+                        <th>Prevención</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Sarna Sarcóptica</strong></td><td>Picor intenso, pérdida de pelo, costras</td><td>Contacto directo</td><td>Guantes, lavado manos, desinfección</td></tr>
+                    <tr><td><strong>Dermatofitosis (Tiña)</strong></td><td>Parches circulares, pelo quebradizo</td><td>Contacto directo, esporas</td><td>EPI completo, ventilación</td></tr>
+                    <tr><td><strong>Pulgas</strong></td><td>Picor, caspa negra (excremento)</td><td>Contacto, saltos</td><td>Control ambiental, productos</td></tr>
+                    <tr><td><strong>Garrapatas</strong></td><td>Puede ser asintomático, picor</td><td>Adherencia a piel</td><td>Revisión visual, EPI</td></tr>
+                    <tr><td><strong>Salmonela</strong></td><td>Diarrea, vómitos, fiebre</td><td>Fecal-oral</td><td>Lavado manos, higiene estricta</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-video"></i> Videos Educativos</h2>
+            <div class="video-container"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Lenguaje Corporal Canino"></iframe></div>
+            <div class="video-container"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Técnicas de Manejo Seguro"></iframe></div>
+            <div class="video-container"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Primeros Auxilios en Grooming"></iframe></div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-volume-up"></i> Narraciones del Módulo</h2>
+            <div class="audio-player">
+                <h4><i class="fas fa-play-circle"></i> Audio 1: Lenguaje Corporal y Manejo</h4>
+                <audio controls style="width: 100%; margin-top: 1rem;"><source src="audio_modulo7.mp3" type="audio/mpeg">Tu navegador no soporta el reproductor de audio.</audio>
+                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">Guía completa sobre lenguaje corporal canino y técnicas de manejo seguro.</p>
+            </div>
+            <div class="audio-player">
+                <h4><i class="fas fa-play-circle"></i> Audio 2: Seguridad y Salud</h4>
+                <audio controls style="width: 100%; margin-top: 1rem;"><source src="audio_modulo7_2.mp3" type="audio/mpeg">Tu navegador no soporta el reproductor de audio.</audio>
+                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">Protocolos de seguridad, primeros auxilios y prevención de zoonosis.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-lightbulb"></i> Contenido Adicional</h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)"><span>Perros de Alto Riesgo</span><i class="fas fa-chevron-down"></i></div>
+                    <div class="accordion-content">
+                        <h4>Razas y Condiciones que Requieren Cuidado Especial</h4>
+                        <ul>
+                            <li><strong>Brachycephálicos:</strong> Problemas respiratorios, sensibilidad al calor</li>
+                            <li><strong>Razas con pliegues:</strong> Riesgo de dermatitis, requieren limpieza especial</li>
+                            <li><strong>Perros mayores:</strong> Articulaciones sensibles, movilidad limitada</li>
+                            <li><strong>Perros con ansiedad:</strong> Necesitan protocolos especiales de manejo</li>
+                            <li><strong>Perros con historial de mordeduras:</strong> Evaluación previa cuidadosa</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)"><span>Registro de Incidentes</span><i class="fas fa-chevron-down"></i></div>
+                    <div class="accordion-content">
+                        <h4>Documentación de Incidentes y Accidentes</h4>
+                        <p>Mantén registros detallados de cualquier incidente:</p>
+                        <ul>
+                            <li>Fecha y hora del incidente</li>
+                            <li>Descripción detallada de lo ocurrido</li>
+                            <li>Condición del perro antes, durante y después</li>
+                            <li>Medidas tomadas para resolver el incidente</li>
+                            <li>Comunicación con el cliente</li>
+                            <li>Seguimiento posterior</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Curso de Peluquería Canina Profesional - Módulo 7: Comportamiento Canino y Seguridad</p>
+            <p>Duración: 12 horas | Total de imágenes: 8 | Videos: 3 | Audios: 2</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('i');
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                document.querySelectorAll('.accordion-content').forEach(acc => acc.classList.remove('active'));
+                document.querySelectorAll('.accordion-header i').forEach(ic => ic.style.transform = 'rotate(0deg)');
+                content.classList.add('active');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

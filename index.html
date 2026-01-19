@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Profesional de Peluquería Canina - 120 Horas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="70" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="70" cy="80" r="2.5" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateX(-50px) translateY(-50px) rotate(0deg); }
+            100% { transform: translateX(-50px) translateY(-50px) rotate(360deg); }
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .duration {
+            font-size: 1rem;
+            margin-top: 10px;
+            background: rgba(255,255,255,0.2);
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            padding: 50px 40px;
+        }
+
+        .description {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .module-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 15px;
+            padding: 30px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module-card:nth-child(2) { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .module-card:nth-child(3) { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        .module-card:nth-child(4) { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        .module-card:nth-child(5) { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #333; }
+        .module-card:nth-child(6) { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); color: #333; }
+        .module-card:nth-child(7) { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); color: #333; }
+        .module-card:nth-child(8) { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+
+        .module-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .module-card .number {
+            font-size: 3rem;
+            font-weight: bold;
+            opacity: 0.3;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+
+        .module-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .module-card p {
+            opacity: 0.9;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        .module-card .duration {
+            background: rgba(255,255,255,0.2);
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .module-card:nth-child(5) .duration,
+        .module-card:nth-child(6) .duration,
+        .module-card:nth-child(7) .duration {
+            background: rgba(0,0,0,0.1);
+            color: #333;
+        }
+
+        .final-exam {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            color: white;
+            margin-top: 30px;
+        }
+
+        .final-exam h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .final-exam p {
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .final-exam a {
+            background: white;
+            color: #ff6b6b;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .final-exam a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #e9ecef;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2rem; }
+            .header .subtitle { font-size: 1.1rem; }
+            .content { padding: 30px 20px; }
+            .modules-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🐕 Curso Profesional de Peluquería Canina</h1>
+            <div class="subtitle">Formación completa en el arte del grooming</div>
+            <div class="duration">⏱️ 120 Horas Académicas</div>
+        </div>
+
+        <div class="content">
+            <div class="description">
+                <p>Bienvenido al curso completo de Peluquería Canina Profesional. Este programa educativo de 120 horas te llevará desde los fundamentos hasta las técnicas avanzadas del mundo del grooming canino, preparándote para una exitosa carrera profesional.</p>
+            </div>
+
+            <div class="modules-grid">
+                <a href="modulo_1/index.html" class="module-card">
+                    <div class="number">01</div>
+                    <h3>Introducción y Fundamentos</h3>
+                    <p>Historia de la peluquería canina, el profesional del grooming, tipos de establecimientos e instalaciones profesionales.</p>
+                    <div class="duration">15 horas</div>
+                </a>
+
+                <a href="modulo_2/index.html" class="module-card">
+                    <div class="number">02</div>
+                    <h3>Anatomía y Fisiología</h3>
+                    <p>Estructura ósea, piel y pelaje, zonas sensibles, reconocimiento de problemas de salud.</p>
+                    <div class="duration">15 horas</div>
+                </a>
+
+                <a href="modulo_3/index.html" class="module-card">
+                    <div class="number">03</div>
+                    <h3>Clasificación de Razas</h3>
+                    <p>Sistema FCI, tipos de pelaje, razas comunes, frecuencia de mantenimiento.</p>
+                    <div class="duration">15 horas</div>
+                </a>
+
+                <a href="modulo_4/index.html" class="module-card">
+                    <div class="number">04</div>
+                    <h3>Herramientas Profesionales</h3>
+                    <p>Máquinas de corte, tijeras, cepillos, equipamiento de seguridad y mantenimiento.</p>
+                    <div class="duration">15 horas</div>
+                </a>
+
+                <a href="modulo_5/index.html" class="module-card">
+                    <div class="number">05</div>
+                    <h3>Higiene y Baño</h3>
+                    <p>Protocolos de baño, preparación, técnicas de secado y alistamiento final.</p>
+                    <div class="duration">15 horas</div>
+                </a>
+
+                <a href="modulo_6/index.html" class="module-card">
+                    <div class="number">06</div>
+                    <h3>Técnicas de Corte</h3>
+                    <p>Cortes comerciales, técnicas con máquina y tijera, cortes de exposición.</p>
+                    <div class="duration">15 horas</div>
+                </a>
+
+                <a href="modulo_7/index.html" class="module-card">
+                    <div class="number">07</div>
+                    <h3>Comportamiento y Seguridad</h3>
+                    <p>Lenguaje corporal canino, manejo profesional, prevención de riesgos.</p>
+                    <div class="duration">15 horas</div>
+                </a>
+
+                <a href="modulo_8/index.html" class="module-card">
+                    <div class="number">08</div>
+                    <h3>Gestión Empresarial</h3>
+                    <p>Atención al cliente, costos, marketing y gestión del negocio.</p>
+                    <div class="duration">15 horas</div>
+                </a>
+            </div>
+
+            <div class="final-exam">
+                <h3>🎓 Examen Final</h3>
+                <p>Evaluación comprehensiva que abarca todos los módulos del curso. Demuestra tu dominio de las competencias profesionales.</p>
+                <a href="recursos_compartidos/examen_final.gift">📋 Descargar Examen Final (GIFT)</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>📚 Curso Profesional de Peluquería Canina | 120 Horas | Versión 1.0</p>
+            <p>Formación completa para profesionales del grooming canino</p>
+        </div>
+    </div>
+</body>
+</html>
